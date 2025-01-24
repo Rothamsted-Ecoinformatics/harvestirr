@@ -1,0 +1,80 @@
+/usr/lib/ckan/default/lib/python3.10/site-packages/requests/__init__.py:102: RequestsDependencyWarning: urllib3 (1.26.19) or chardet (5.2.0)/charset_normalizer (2.0.12) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({})/charset_normalizer ({}) doesn't match a supported "
+ * Serving Flask app 'ckanserviceprovider.web' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+2025-01-24 15:20:47,608 WARNING  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-01-24 15:20:47,609 INFO  * Running on http://149.155.17.135:8800/ (Press CTRL+C to quit)
+2025-01-24 15:20:57,315 INFO 127.0.0.1 - - [24/Jan/2025 15:20:57] "GET /job/defe1a15-6d50-4346-ab04-bba41f32145a HTTP/1.1" 200 -
+2025-01-24 15:20:58,499 INFO 127.0.0.1 - - [24/Jan/2025 15:20:58] "POST /job HTTP/1.1" 200 -
+2025-01-24 15:20:58,551 INFO 127.0.0.1 - - [24/Jan/2025 15:20:58] "GET /job/69077a01-b4e3-4d2a-a872-392ad55972e2 HTTP/1.1" 200 -
+2025-01-24 15:20:58,618 INFO Fetching from: http://ed-ubuntu-20-04.rothamsted.ac.uk:80/dataset/d7cdca05-d00a-470b-b057-2fd9b19afc6e/resource/1edd52dc-fb86-4e63-bf61-15af2762685a/download/free_test_data_200kb_csv-1-1.csv
+2025-01-24 15:20:58,834 INFO Deleting "1edd52dc-fb86-4e63-bf61-15af2762685a" from datastore.
+2025-01-24 15:20:58,971 INFO Determined headers and types: [{'id': 'SR.', 'type': 'numeric'}, {'id': 'NAME', 'type': 'text'}, {'id': 'GENDER', 'type': 'text'}, {'id': 'AGE', 'type': 'numeric'}, {'id': 'DATE', 'type': 'timestamp'}, {'id': 'COUNTRY', 'type': 'text'}]
+2025-01-24 15:20:59,011 INFO Saving chunk 0 
+2025-01-24 15:20:59,222 INFO Saving chunk 1 
+2025-01-24 15:20:59,345 INFO Saving chunk 2 
+2025-01-24 15:20:59,466 INFO Saving chunk 3 
+2025-01-24 15:20:59,595 INFO Saving chunk 4 
+2025-01-24 15:20:59,714 INFO Saving chunk 5 
+2025-01-24 15:20:59,833 INFO Saving chunk 6 
+2025-01-24 15:20:59,991 INFO Saving chunk 7 
+2025-01-24 15:21:00,169 INFO Saving chunk 8 
+2025-01-24 15:21:00,289 INFO Saving chunk 9 
+2025-01-24 15:21:00,392 INFO Saving chunk 10 
+2025-01-24 15:21:00,512 INFO Saving chunk 11 
+2025-01-24 15:21:00,607 INFO Saving chunk 12 
+2025-01-24 15:21:00,714 INFO Saving chunk 13 
+2025-01-24 15:21:00,833 INFO Saving chunk 14 
+2025-01-24 15:21:00,945 INFO Saving chunk 15 
+2025-01-24 15:21:01,041 INFO Saving chunk 16 
+2025-01-24 15:21:01,146 INFO Saving chunk 17 
+2025-01-24 15:21:01,277 INFO Saving chunk 18 
+2025-01-24 15:21:01,376 INFO Saving chunk 19 
+2025-01-24 15:21:01,506 INFO Saving chunk 20 
+2025-01-24 15:21:01,618 INFO Saving chunk 21 
+2025-01-24 15:21:01,732 INFO Saving chunk 22 
+2025-01-24 15:21:01,844 INFO Saving chunk 23 
+2025-01-24 15:21:01,969 INFO Saving chunk 24 
+2025-01-24 15:21:02,073 INFO Saving chunk 25 
+2025-01-24 15:21:02,208 INFO Saving chunk 26 
+2025-01-24 15:21:02,338 INFO Saving chunk 27 
+2025-01-24 15:21:02,464 INFO Saving chunk 28 
+2025-01-24 15:21:02,587 INFO Saving chunk 29 
+2025-01-24 15:21:02,700 INFO Saving chunk 30 
+2025-01-24 15:21:02,828 INFO Saving chunk 31 
+2025-01-24 15:21:02,948 INFO Saving chunk 32 
+2025-01-24 15:21:03,068 INFO Saving chunk 33 
+2025-01-24 15:21:03,183 INFO Saving chunk 34 
+2025-01-24 15:21:03,295 INFO Saving chunk 35 
+2025-01-24 15:21:03,441 INFO Saving chunk 36 
+2025-01-24 15:21:03,556 INFO Saving chunk 37 
+2025-01-24 15:21:03,679 INFO Saving chunk 38 
+2025-01-24 15:21:03,786 INFO Saving chunk 39 
+2025-01-24 15:21:03,920 INFO Saving chunk 40 
+2025-01-24 15:21:04,043 INFO Saving chunk 41 
+2025-01-24 15:21:04,159 INFO Saving chunk 42 
+2025-01-24 15:21:04,272 INFO Saving chunk 43 
+2025-01-24 15:21:04,408 INFO Saving chunk 44 
+2025-01-24 15:21:04,511 INFO Saving chunk 45 
+2025-01-24 15:21:04,609 INFO Saving chunk 46 
+2025-01-24 15:21:04,717 INFO Saving chunk 47 
+2025-01-24 15:21:04,835 INFO Saving chunk 48 
+2025-01-24 15:21:04,961 INFO Saving chunk 49 
+2025-01-24 15:21:05,080 INFO Saving chunk 50 
+2025-01-24 15:21:05,199 INFO Saving chunk 51 
+2025-01-24 15:21:05,317 INFO Saving chunk 52 
+2025-01-24 15:21:05,444 INFO Saving chunk 53 
+2025-01-24 15:21:05,560 INFO Saving chunk 54 
+2025-01-24 15:21:05,697 INFO Saving chunk 55 
+2025-01-24 15:21:05,799 INFO Saving chunk 56 
+2025-01-24 15:21:05,919 INFO Saving chunk 57 
+2025-01-24 15:21:06,050 INFO Saving chunk 58 
+2025-01-24 15:21:06,160 INFO Saving chunk 59 
+2025-01-24 15:21:06,281 INFO Saving chunk 60 
+2025-01-24 15:21:06,398 INFO Saving chunk 61 
+2025-01-24 15:21:06,522 INFO Saving chunk 62 (last)
+2025-01-24 15:21:06,688 INFO Successfully pushed 15723 entries to "1edd52dc-fb86-4e63-bf61-15af2762685a".
