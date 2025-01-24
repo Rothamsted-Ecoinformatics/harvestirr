@@ -1,5 +1,0 @@
--r requirements.txt
-mock
-httpretty==0.9.4
-pytest
-pytest-cov
