@@ -8,7 +8,7 @@ setup(
     # http://babel.pocoo.org/docs/messages/#extraction-method-mapping-and-configuration
     entry_points='''
         [ckan.plugins]
-            ckanext-extrafields=ckanext.extrafields.plugin:ExampleIDatasetFormPlugin
+            extrafields=ckanext.extrafields.plugin:ExampleIDatasetFormPlugin
             ''',
     message_extractors={
         'ckanext': [

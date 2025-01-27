@@ -1,6 +1,6 @@
 import ckan.plugins as plugins
-import ckan.plugins.toolkit as toolkit
-
+import ckan.plugins.toolkit as tk
+from ckan.types import Schema
 
 # import ckanext.extrafields.cli as cli
 # import ckanext.extrafields.helpers as helpers
@@ -10,7 +10,7 @@ import ckan.plugins.toolkit as toolkit
 # )
 
 
-class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
+class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm) 
     # plugins.implements(plugins.IAuthFunctions)
@@ -24,9 +24,9 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetF
     # IConfigurer
 
     def update_config(self, config_):
-        toolkit.add_template_directory(config_, "templates")
-        toolkit.add_public_directory(config_, "public")
-        toolkit.add_resource("assets", "extrafields")
+        tk.add_template_directory(config_, "templates")
+        tk.add_public_directory(config_, "public")
+        tk.add_resource("assets", "extrafields")
    
     def create_package_schema(self) -> Schema:
         # let's grab the default schema in our plugin
@@ -72,7 +72,7 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetF
         # This plugin doesn't handle any special package types, it just
         # registers itself as the default (above).
         return []
-    def update_config(self, config: CKANConfig):
+    def update_config(self, config):
         # Add this plugin's templates dir to CKAN's extra_template_paths, so
         # that CKAN will use this plugin's custom templates.
         tk.add_template_directory(config, 'templates')
