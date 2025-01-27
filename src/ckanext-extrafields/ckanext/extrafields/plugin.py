@@ -10,7 +10,7 @@ import ckan.plugins.toolkit as toolkit
 # )
 
 
-class ExtrafieldsPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
+class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm) 
     # plugins.implements(plugins.IAuthFunctions)
