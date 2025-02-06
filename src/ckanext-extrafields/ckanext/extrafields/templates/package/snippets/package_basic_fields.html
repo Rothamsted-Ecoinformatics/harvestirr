@@ -15,19 +15,28 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
     display: none;
   }
 
-  .arrow {
+  .dataset_arrowarrow {
     cursor: pointer;
     display: inline-block;
     margin-left: 10px;
     transition: transform 0.3s;
   }
 
-  .arrow.collapsed {
+  .dataset_arrow.collapsed {
+    transform: rotate(180deg);
+  }
+  .report_arrow {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+  .report_arrow.collapsed {
     transform: rotate(180deg);
   }
 </style>
 <body>
-  <h2 id="heading">Dataset<span class="arrow">&#9660;</span></h2>
+  <h3 id="heading">Dataset<span class="dataset_arrow">&#9660;</span></h3>
   <div id="inputField">
       <label for="dataset_name">Dataset Name</label><br>
       <input type="text" id="dataset_name" name="dataset_name"><br><br>
@@ -39,7 +48,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
      console.log("helllo");
       document.getElementById('heading').addEventListener('click', function() {
           var inputField = document.getElementById('inputField');
-          var arrow = document.querySelector('.arrow');
+          var arrow = document.querySelector('.dataset_arrow');
           if (inputField.style.display === 'none') {
               inputField.style.display = 'block';
               arrow.classList.add('collapsed');
@@ -49,5 +58,13 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
           }
       });
   </script>
+
+<h3 id="heading">Report<span class="report_arrow">&#9660;</span></h3>
+<div id="inputField">
+    <label for="report_name">Report Name</label><br>
+    <input type="text" id="report_name" name="report_name"><br><br>
+    <label for="report_id">Report ID</label><br>
+    <input type="text" id="report_id" name="report_id"><br><br>
+</div>  
 </body>
 {% endblock %}

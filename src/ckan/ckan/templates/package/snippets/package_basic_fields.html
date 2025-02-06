@@ -17,9 +17,9 @@
 
 {% block package_basic_fields_custom %}{% endblock %}
 
-{% block package_basic_fields_description %}
+<!-- {% block package_basic_fields_description %}
   {{ form.markdown('notes', id='field-notes', label=_('Description'), placeholder=_('eg. Some useful notes about the data'), value=data.notes, error=errors.notes) }}
-{% endblock %}
+{% endblock %} -->
 
 {% block package_basic_fields_tags %}
   {% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source': '/api/2/util/tag/autocomplete?incomplete=?'} %}
