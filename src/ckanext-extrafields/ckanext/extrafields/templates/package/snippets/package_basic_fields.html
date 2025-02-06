@@ -39,7 +39,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
 </style>
 
 <body>
-  <h3 id="dataset_heading">Dataset<span class="dataset_arrow">&#9660;</span></h3>
+  <h3 id="datasetHeading">Dataset<span class="dataset_arrow">&#9660;</span></h3>
   <div id="datasetField">
     <label for="dataset_name">Dataset Name</label><br>
     <input type="text" id="dataset_name" name="dataset_name"><br><br>
@@ -49,7 +49,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
 
   <script>
     console.log("helllo");
-    document.getElementById('datasetheading').addEventListener('click', function () {
+    document.getElementById('datasetHeading').addEventListener('click', function () {
       var inputField = document.getElementById('datasetField');
       var arrow = document.querySelector('.dataset_arrow');
       if (inputField.style.display === 'none') {
@@ -62,7 +62,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
     });
   </script>
 
-  <h3 id="report_heading">Report<span class="report_arrow">&#9660;</span></h3>
+  <h3 id="reportHeading">Report<span class="report_arrow">&#9660;</span></h3>
   <div id="reportField">
     <label for="report_name">Report Name</label><br>
     <input type="text" id="report_name" name="report_name"><br><br>
@@ -71,7 +71,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
   </div>
   <script>
     console.log("helllo");
-    document.getElementById('reportheading').addEventListener('click', function () {
+    document.getElementById('reportHeading').addEventListener('click', function () {
       var inputField = document.getElementById('reportField');
       var arrow = document.querySelector('.dataset_arrow');
       if (inputField.style.display === 'none') {
