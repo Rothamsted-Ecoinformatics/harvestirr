@@ -10,6 +10,7 @@
 {{ form.input('custom_text', label=_('Custom Text'), id='field-custom_text', placeholder=_('custom text'),
 value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
 
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
 <style>
   #inputField {
     display: none;
@@ -46,7 +47,7 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
     <label for="dataset_id>Dataset ID">Dataset ID</label><br>
     <input type="text" id="dataset_id" name="dataset_id"><br><br>
   </div>
-
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
   <script>
 
     document.getElementById('datasetHeading').addEventListener('click', function () {
@@ -69,6 +70,8 @@ value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
     <label for="report_id">Report ID</label><br>
     <input type="text" id="report_id" name="report_id"><br><br>
   </div>
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
+
   <script>
 
     document.getElementById('reportHeading').addEventListener('click', function () {
