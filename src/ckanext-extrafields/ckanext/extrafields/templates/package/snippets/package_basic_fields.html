@@ -1,5 +1,49 @@
 {% ckan_extends %}
 
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 {% block package_basic_fields_custom %}
-  {{ form.input('custom_text', label=_('Custom Text'), id='field-custom_text', placeholder=_('custom text'), value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
+{{ form.input('custom_text', label=_('Custom Text'), id='field-custom_text', placeholder=_('custom text'),
+value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
 {% endblock %}
+<style>
+  #inputField {
+    display: none;
+  }
+
+  .arrow {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+
+  .arrow.collapsed {
+    transform: rotate(180deg);
+  }
+</style>
+<body>
+  <h2 id="heading">Dataset<span class="arrow">&#9660;</span></h2>
+  <div id="inputField">
+      <label for="dataset_name">Dataset Name:</label>
+      <input type="text" id="dataset_name" name="dataset_name">
+  </div>
+
+  <script>
+      document.getElementById('heading').addEventListener('click', function() {
+          var inputField = document.getElementById('inputField');
+          var arrow = document.querySelector('.arrow');
+          if (inputField.style.display === 'none') {
+              inputField.style.display = 'block';
+              arrow.classList.add('collapsed');
+          } else {
+              inputField.style.display = 'none';
+              arrow.classList.remove('collapsed');
+          }
+      });
+  </script>
+</body>
