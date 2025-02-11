@@ -2,24 +2,12 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as tk
 from ckan.types import Schema
 
-# import ckanext.extrafields.cli as cli
-# import ckanext.extrafields.helpers as helpers
-# import ckanext.extrafields.views as views
-# from ckanext.extrafields.logic import (
-#     action, auth, validators
-# )
 
 
 class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm) 
-    # plugins.implements(plugins.IAuthFunctions)
-    # plugins.implements(plugins.IActions)
-    # plugins.implements(plugins.IBlueprint)
-    # plugins.implements(plugins.IClick)
-    # plugins.implements(plugins.ITemplateHelpers)
-    # plugins.implements(plugins.IValidators)
-    
+
 
     # IConfigurer
 
@@ -44,6 +32,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'contributor_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'journal': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publisher': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_volume': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_issue': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_page_range': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -61,6 +59,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'contributor_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'journal': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publisher': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_volume': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_issue': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_page_range': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -77,6 +85,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'contributor_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'journal': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publisher': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_volume': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_issue': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_page_range': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -91,6 +109,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'contributor_email': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'contributor_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publisher': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_volume': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_issue': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_page_range': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
         })
         return schema

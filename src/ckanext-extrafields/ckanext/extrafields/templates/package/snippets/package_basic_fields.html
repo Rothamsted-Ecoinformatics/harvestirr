@@ -37,8 +37,23 @@
 <br><br>
 <!-- Abstract -->
 <label for="field-abstract">Abstract</label><br>
-<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium" style="width: 500px;"> {{ data.notes }} </textarea>
+<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium" style="width: 500px; height: 50px;"> {{ data.notes }} </textarea>
 <br><br>
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
+<label><strong>Journal citation</strong></label>
+<!-- Journal Volume -->
+<label for="field-journal_volume">Journal Volume</label><br>
+<input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium" value="{{ data.journal_volume }}">
+<br><br>
+<!-- Journal Issue -->
+<label for="field-journal_issue">Journal Issue</label><br>
+<input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium" value="{{ data.journal_issue }}">
+<br><br>
+<!-- Journal Page Range -->
+<label for="field-journal_page_range">Journal Page Range</label><br>
+<input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium" value="{{ data.journal_page_range }}">
+<br><br>
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 <style>
