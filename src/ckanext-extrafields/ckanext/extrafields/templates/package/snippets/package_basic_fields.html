@@ -8,29 +8,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <!-- Author -->
-<input type="text" id="field-author" placeholder="Joe Bloggs" class="control-medium" value="{{ data.author }}">
+<label for="field-author">Author</label><br>
+<input type="text" id="field-author" placeholder="Joe Bloggs" class="control-medium" value="{{ data.author }}"><br><br>
 
 <!-- Author Email -->
+<label for="field-author-email">Author Email</label><br>
 <input type="email" id="field-author-email" placeholder="joe@example.com" class="control-medium" value="{{ data.author_email }}">
-
+<br><br>
 <!-- Contributor Name -->
+<label for="field-contributor_name">Contributor Name</label><br> 
 <input type="text" id="field-contributor_name" placeholder="John Smith" class="control-medium" value="{{ data.contributor_name }}">
-
+<br><br>
 <!-- Contributor Email -->
+<label for="field-contributor_email">Contributor Email</label><br>
 <input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium" value="{{ data.contributor_email }}">
-
+<br><br>
 <!-- Contributor Type -->
+<label for="field-contributor_type">Contributor Type</label><br>
 <input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium" value="{{ data.contributor_type }}">
-
+<br><br>
 <!-- Publication Type -->
+<label for="field-publication_type">Publication Type</label><br>
 <input type="text" id="field-publication_type" placeholder="Dataset, Report .." class="control-medium" value="{{ data.publication_type }}">
-
+<br><br>
 <!-- Publication Year -->
+<label for="field-publication_year">Publication Year</label><br>
 <input type="text" id="field-publication_year" placeholder="2025" class="control-medium" value="{{ data.publication_year }}">
-
+<br><br>
 <!-- Abstract -->
+<label for="field-abstract">Abstract</label><br>
 <textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"> {{ data.notes }} </textarea>
-
+<br><br>
 
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 <style>
