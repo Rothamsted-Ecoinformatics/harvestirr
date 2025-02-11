@@ -16,15 +16,15 @@
 
 {{ form.input('contributor_name', label=_('Contributor Name'), id='field-contributor_name', placeholder=_('John Smith'), value=data.contributor_name,
        error=errors.contributor_name, classes=['control-medium']) }}
-{% endblock %}
+
 
 {{ form.input('contributor_email', label=_('Contributor Email'), id='field-contributor_email', placeholder=_('joe@example.com'), value=data.contributor_email,
        error=errors.contributor_email, classes=['control-medium']) }}
-{% endblock %}
+
 
 {{ form.input('contributor_type', label=_('Contributor Type'), id='field-contributor_type', placeholder=_('Author, Maintainer ..'), value=data.contributor_type,
        error=errors.contributor_type, classes=['control-medium']) }}
-{% endblock %}
+
 
 {{ form.input('publication_type', label=_('Publication Type'), id='field-publication_type', placeholder=_('Dataset, Report ..'),
 value=data.publication_type, error=errors.publication_type, classes=['control-medium']) }}
