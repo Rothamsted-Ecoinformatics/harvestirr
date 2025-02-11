@@ -13,4 +13,22 @@
       <td class="dataset-details">{{ pkg_dict.publication_year }}</td>
     </tr>
   {% endif %}
+  {% if pkg_dict.contributor_name %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Contributor Name") }}</th>
+    <td class="dataset-details">{{ pkg_dict.contributor_name }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.contributor_email %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Contributor Email") }}</th>
+    <td class="dataset-details">{{ pkg_dict.contributor_email }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.contributor_type %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Contributor Type") }}</th>
+    <td class="dataset-details">{{ pkg_dict.contributor_type }}</td>
+  </tr>
+  {% endif %}
 {% endblock %}

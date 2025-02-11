@@ -37,7 +37,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')]
+                            tk.get_converter('convert_to_extras')],
+            'contributor_name': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'contributor_email': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'contributor_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -48,7 +54,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')]
+                            tk.get_converter('convert_to_extras')],
+            'contributor_name': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'contributor_email': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'contributor_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -58,7 +70,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_year': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')]
+                            tk.get_validator('ignore_missing')],
+            'contributor_name': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'contributor_email': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'contributor_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -67,7 +85,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_year': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')]
+                            tk.get_validator('ignore_missing')],
+            'contributor_name': [tk.get_converter('convert_from_extras'), 
+                            tk.get_validator('ignore_missing')],
+            'contributor_email': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'contributor_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
 
