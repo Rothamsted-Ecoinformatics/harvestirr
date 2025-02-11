@@ -49,5 +49,29 @@
     <td class="dataset-details">{{ pkg_dict.journal_page_range }}</td>
   </tr>
   {% endif %}
-  
+  {% if pkg_dict.isbn %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("ISBN") }}</th>
+    <td class="dataset-details">{{ pkg_dict.isbn }}</td>  
+  </tr>
+  {% endif %}
+  {% if pkg_dict.issn %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("ISSN") }}</th>
+    <td class="dataset-details">{{ pkg_dict.issn }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.placeOf_publication %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Place of Publication") }}</th>
+    <td class="dataset-details">{{ pkg_dict.placeOf_publication }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.existing_doi %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Existing DOI") }}</th>
+    <td class="dataset-details">{{ pkg_dict.existing_doi }}</td>
+  </tr>
+  {% endif %}
+    
 {% endblock %}

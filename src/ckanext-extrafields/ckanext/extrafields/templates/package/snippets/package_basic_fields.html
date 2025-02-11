@@ -40,7 +40,7 @@
 <textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium" style="width: 500px; height: 50px;"> {{ data.notes }} </textarea>
 <br><br>
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
-<label><strong>Journal citation</strong></label>
+<label><strong>Journal citation</strong></label><br>
 <!-- Journal Volume -->
 <label for="field-journal_volume">Journal Volume</label><br>
 <input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium" value="{{ data.journal_volume }}">
@@ -55,7 +55,23 @@
 <br><br>
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
+<label for="field-isbn">ISBN</label><br>
+<input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}">
+<br><br>
+
+<label for="field-issn">ISSN</label><br>
+<input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}">
+<br><br>
+
+<label for="field-placeOf_publication">Place of Publication</label><br>
+<input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium" value="{{ data.placeOf_publication }}">
+<br><br>
+
+<label for="field-existing_doi">Existing DOI</label><br>
+<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium" value="{{ data.existing_doi }}">
+<br><br>
+
+
 <style>
   #inputField {
     display: none;

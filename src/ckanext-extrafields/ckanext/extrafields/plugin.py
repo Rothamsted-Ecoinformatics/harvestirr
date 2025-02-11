@@ -42,6 +42,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'journal_page_range': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'isbn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'issn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'placeOf_publication': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'exiting_doi': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -69,6 +77,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'journal_page_range': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'isbn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'issn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'placeOf_publication': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'exiting_doi': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -95,6 +111,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'journal_page_range': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'isbn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'issn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'placeOf_publication': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'exiting_doi': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -120,6 +144,15 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'journal_page_range': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'isbn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'issn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'placeOf_publication': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'exiting_doi': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            
         })
         return schema
 
