@@ -34,7 +34,9 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             ExampleIDatasetFormPlugin, self).create_package_schema()
         # our custom field
         schema.update({
-            'custom_text': [tk.get_validator('ignore_missing'),
+            'publication_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publication_year': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')]
         })
         return schema
@@ -43,7 +45,9 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             ExampleIDatasetFormPlugin, self).update_package_schema()
         # our custom field
         schema.update({
-            'custom_text': [tk.get_validator('ignore_missing'),
+            'publication_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publication_year': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')]
         })
         return schema
@@ -51,14 +55,18 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
         schema: Schema = super(
             ExampleIDatasetFormPlugin, self).show_package_schema()
         schema.update({
-            'custom_text': [tk.get_converter('convert_from_extras'),
+            'publication_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publication_year': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')]
         })
         return schema
         schema: Schema = super(
             ExampleIDatasetFormPlugin, self).show_package_schema()
         schema.update({
-            'custom_text': [tk.get_converter('convert_from_extras'),
+            'publication_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publication_year': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')]
         })
         return schema

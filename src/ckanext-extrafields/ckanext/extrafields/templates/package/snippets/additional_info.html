@@ -3,8 +3,12 @@
 {% block extras %}
   {% if pkg_dict.custom_text %}
     <tr>
-      <th scope="row" class="dataset-label">{{ _("Custom Text") }}</th>
-      <td class="dataset-details">{{ pkg_dict.custom_text }}</td>
+      <th scope="row" class="dataset-label">{{ _("Publication Type") }}</th>
+      <td class="dataset-details">{{ pkg_dict.publication_type }}</td>
+    </tr>
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Publication Year") }}</th>
+      <td class="dataset-details">{{ pkg_dict.publication_year }}</td>
     </tr>
   {% endif %}
 {% endblock %}
