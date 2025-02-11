@@ -29,8 +29,28 @@
 <br><br>
 <!-- Publication Type -->
 <label for="field-publication_type">Publication Type</label><br>
-<input type="text" id="field-publication_type" placeholder="Dataset, Report .." class="control-medium" value="{{ data.publication_type }}">
+<select id="field-publication_type" class="control-medium">
+  <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
+  <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
+  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned societies</option>
+  <option value="Report">Report</option>
+  <option value="Preprint article">Preprint article</option>
+  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member, alone/with others</option>
+  <option value="Theses">Theses</option>
+  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other technical publications</option>
+  <option value="Patents">Patents</option>
+  <option value="Computer programs">Computer programs</option>
+  <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database</option>
+  <option value="Plant variety">Plant variety</option>
+  <option value="Agricultural models">Agricultural models</option>
+  <option value="Datasets">Datasets</option>
+</select>
 <br><br>
+<script>
+  if ("{{ data.publication_type }}") {
+    document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
+  }
+</script>
 <!-- Publication Year -->
 <label for="field-publication_year">Publication Year</label><br>
 <input type="text" id="field-publication_year" placeholder="2025" class="control-medium" value="{{ data.publication_year }}">
