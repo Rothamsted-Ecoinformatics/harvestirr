@@ -7,34 +7,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-{% block package_metadata_author %}
-{{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author, error=errors.author, classes=['control-medium']) }}
+<!-- Author -->
+<input type="text" id="field-author" placeholder="Joe Bloggs" class="control-medium" value="{{ data.author }}">
 
-{{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'), value=data.author_email, 
-      error=errors.author_email, classes=['control-medium']) }}
-{% endblock %}
+<!-- Author Email -->
+<input type="email" id="field-author-email" placeholder="joe@example.com" class="control-medium" value="{{ data.author_email }}">
 
-{{ form.input('contributor_name', label=_('Contributor Name'), id='field-contributor_name', placeholder=_('John Smith'), value=data.contributor_name,
-       error=errors.contributor_name, classes=['control-medium']) }}
+<!-- Contributor Name -->
+<input type="text" id="field-contributor_name" placeholder="John Smith" class="control-medium" value="{{ data.contributor_name }}">
 
+<!-- Contributor Email -->
+<input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium" value="{{ data.contributor_email }}">
 
-{{ form.input('contributor_email', label=_('Contributor Email'), id='field-contributor_email', placeholder=_('joe@example.com'), value=data.contributor_email,
-       error=errors.contributor_email, classes=['control-medium']) }}
+<!-- Contributor Type -->
+<input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium" value="{{ data.contributor_type }}">
 
+<!-- Publication Type -->
+<input type="text" id="field-publication_type" placeholder="Dataset, Report .." class="control-medium" value="{{ data.publication_type }}">
 
-{{ form.input('contributor_type', label=_('Contributor Type'), id='field-contributor_type', placeholder=_('Author, Maintainer ..'), value=data.contributor_type,
-       error=errors.contributor_type, classes=['control-medium']) }}
+<!-- Publication Year -->
+<input type="text" id="field-publication_year" placeholder="2025" class="control-medium" value="{{ data.publication_year }}">
 
-
-{{ form.input('publication_type', label=_('Publication Type'), id='field-publication_type', placeholder=_('Dataset, Report ..'),
-value=data.publication_type, error=errors.publication_type, classes=['control-medium']) }}
-
-{{ form.input('publication_year', label=_('Publication Year'), id='field-publication_year', placeholder=_('2025'),
-value=data.publication_year, error=errors.publication_year, classes=['control-medium']) }}
-
-{% block package_basic_fields_description %}
-  {{ form.markdown('notes', id='field-notes', label=_('Abstract'), placeholder=_('eg. Some useful notes about the data'), value=data.notes, error=errors.notes) }}
-{% endblock %}
+<!-- Abstract -->
+<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"> {{ data.notes }} </textarea>
 
 
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
