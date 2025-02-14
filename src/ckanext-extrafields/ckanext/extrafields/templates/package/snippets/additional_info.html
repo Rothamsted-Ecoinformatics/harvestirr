@@ -97,5 +97,24 @@
   <td class="dataset-details">{{ pkg_dict.openAccess }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.funder_code %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Funder Code") }}</th>
+  <td class="dataset-details">{{ pkg_dict.funder_code }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.funder_name %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Funder Name") }}</th>
+  <td class="dataset-details">{{ pkg_dict.funder_name }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.output_status %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Output Status") }}</th>
+  <td class="dataset-details">{{ pkg_dict.output_status }}</td>
+</tr>
+{% endif %}
+
 
 {% endblock %}

@@ -137,6 +137,29 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 </select>
 <br><br>
 
+<!-- Funder Code -->
+<label for="field-funder_code">Funder Code</label><br>
+<input type="text" id="field-funder_code" placeholder="eg. Funder Code" class="control-medium"
+  value="{{ data.funder_code }}" name="funder_code">
+<br><br>
+
+<!-- Funder Name -->
+<label for="field-funder_name">Funder Name</label><br>
+<input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
+  value="{{ data.funder_name }}" name="funder_name">
+<br><br>
+
+<!-- Output Status -->
+<label for="field-output_status">Output Status</label><br>
+<select id="output_status" name="output_status">
+  <option value="published">Published</option>
+  <option value="submitted">Submitted</option>
+  <option value="in_preparation">In Preparation</option>
+  <option value="in_press">In Press</option>
+  <option value="unpublished">Unpublished</option>
+</select>
+<br><br>
+
 <style>
   #inputField {
     display: none;
