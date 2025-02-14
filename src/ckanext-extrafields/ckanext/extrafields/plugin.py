@@ -50,6 +50,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'exiting_doi': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'pubMedID': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'webAddress': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'relatedOutput': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'openAccess': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -85,6 +93,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'exiting_doi': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'pubMedID': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'webAddress': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'relatedOutput': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'openAccess': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -119,6 +135,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'exiting_doi': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'pubMedID': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'webAddress': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'relatedOutput': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'openAccess': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -151,6 +175,14 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'placeOf_publication': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'exiting_doi': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'pubMedID': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'webAddress': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'relatedOutput': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'openAccess': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             
         })

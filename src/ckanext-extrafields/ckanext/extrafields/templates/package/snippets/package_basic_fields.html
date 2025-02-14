@@ -9,34 +9,42 @@
 </head>
 <!-- Author -->
 {% block package_metadata_author %}
-    {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author, error=errors.author, classes=['control-medium']) }}
+{{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
+error=errors.author, classes=['control-medium']) }}
 
-    {{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'), value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
-  {% endblock %}
+{{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'),
+value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
+{% endblock %}
 
 <!-- Contributor Name -->
-<label for="field-contributor_name">Contributor Name</label><br> 
-<input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium" value="{{ data.contributor_name }}">
+<label for="field-contributor_name">Contributor Name</label><br>
+<input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium"
+  value="{{ data.contributor_name }}">
 <br><br>
 <!-- Contributor Email -->
 <label for="field-contributor_email">Contributor Email</label><br>
-<input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium" value="{{ data.contributor_email }}" name="contributor_email">
+<input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium"
+  value="{{ data.contributor_email }}" name="contributor_email">
 <br><br>
 <!-- Contributor Type -->
 <label for="field-contributor_type">Contributor Type</label><br>
-<input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium" value="{{ data.contributor_type }}" name="contributor_type"> 
+<input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium"
+  value="{{ data.contributor_type }}" name="contributor_type">
 <br><br>
 <!-- Publication Type -->
 <label for="field-publication_type">Publication Type</label><br>
 <select id="field-publication_type" class="control-medium" name="publication_type"> >
   <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
   <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
-  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned societies</option>
+  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
+    societies</option>
   <option value="Report">Report</option>
   <option value="Preprint article">Preprint article</option>
-  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member, alone/with others</option>
+  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member,
+    alone/with others</option>
   <option value="Theses">Theses</option>
-  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other technical publications</option>
+  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other
+    technical publications</option>
   <option value="Patents">Patents</option>
   <option value="Computer programs">Computer programs</option>
   <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database</option>
@@ -52,44 +60,82 @@
 </script>
 <!-- Publication Year -->
 <label for="field-publication_year">Publication Year</label><br>
-<input type="text" id="field-publication_year" placeholder="2025" class="control-medium" value="{{ data.publication_year }}" name="publication_year"> 
+<input type="text" id="field-publication_year" placeholder="2025" class="control-medium"
+  value="{{ data.publication_year }}" name="publication_year">
 <br><br>
 <!-- Abstract -->
 <label for="field-abstract">Abstract</label><br>
-<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium" style="width: 500px; height: 50px;" name="notes" > {{ data.notes }} </textarea>
+<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
+  style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
 <br><br>
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 <label><strong>Journal citation</strong></label><br>
 <!-- Journal Volume -->
 <label for="field-journal_volume">Journal Volume</label><br>
-<input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium" value="{{ data.journal_volume }}" name="journal_volume">
+<input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium"
+  value="{{ data.journal_volume }}" name="journal_volume">
 <br><br>
 <!-- Journal Issue -->
 <label for="field-journal_issue">Journal Issue</label><br>
-<input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium" value="{{ data.journal_issue }}" name="journal_issue"> 
+<input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium"
+  value="{{ data.journal_issue }}" name="journal_issue">
 <br><br>
 <!-- Journal Page Range -->
 <label for="field-journal_page_range">Journal Page Range</label><br>
-<input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium" value="{{ data.journal_page_range }}" name="journal_page_range"> 
+<input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium"
+  value="{{ data.journal_page_range }}" name="journal_page_range">
 <br><br>
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
+<!-- ISBN -->
 <label for="field-isbn">ISBN</label><br>
-<input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}" name="isbn" >
+<input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}"
+  name="isbn">
 <br><br>
+<!-- ISSN -->
 
 <label for="field-issn">ISSN</label><br>
-<input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}" name="issn"> 
+<input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}" name="issn">
 <br><br>
 
+<!-- Place of Publication -->
 <label for="field-placeOf_publication">Place of Publication</label><br>
-<input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium" value="{{ data.placeOf_publication }}" name="placeOf_publication"> 
+<input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium"
+  value="{{ data.placeOf_publication }}" name="placeOf_publication">
 <br><br>
 
+<!-- Existing DOI -->
 <label for="field-existing_doi">Existing DOI</label><br>
-<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium" value="{{ data.existing_doi }}" name="existing_doi"> 
+<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
+  value="{{ data.existing_doi }}" name="existing_doi">
 <br><br>
 
+<!-- pubMedID -->
+<label for="field-pubMedID">PubMed ID</label><br>
+<input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
+  name="pubMedID">
+<br><br>
+
+<!-- Web Address -->
+<label for="field-webAddress">Web Address</label><br>
+<input type="text" id="field-webAddress" placeholder="http://example.com" class="control-medium"
+  value="{{ data.webAddress }}" name="webAddress">
+<br><br>
+
+<!-- Related Output -->
+<label for="field-relatedOutput">Related Output</label><br>
+<input type="text" id="field-relatedOutput" placeholder="eg. Related output" class="control-medium"
+  value="{{ data.relatedOutput }}" name="relatedOutput">
+<br><br>
+
+<!-- Open Access -->
+<label for="field-openAccess">Open Access</label><br>
+<select id="access" name="access">
+  <option value="green_open_access">Published as green open access</option>
+  <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
+  <option value="non_open_access">Published as non-open access</option>
+</select>
+<br><br>
 
 <style>
   #inputField {
