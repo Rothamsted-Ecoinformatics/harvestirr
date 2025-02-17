@@ -115,6 +115,40 @@
   <td class="dataset-details">{{ pkg_dict.output_status }}</td>
 </tr>
 {% endif %}
-
-
+{% if pkg_dict.strategic_area %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Strategic Area") }}</th>
+  <td class="dataset-details">{{ pkg_dict.strategic_area }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.site %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Site") }}</th>
+  <td class="dataset-details">{{ pkg_dict.site }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.additional_information %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Additional Information") }}</th>
+  <td class="dataset-details">{{ pkg_dict.additional_information }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.national_capability %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("National Capability") }}</th>
+  <td class="dataset-details">{{ pkg_dict.national_capability }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.national_capability_list %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("National Capability Used") }}</th>
+  <td class="dataset-details">{{ pkg_dict.national_capability_list }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.patentable %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Is anything patentable?") }}</th>
+  <td class="dataset-details">{{ pkg_dict.patentable }}</td>
+</tr>
+{% endif %}
 {% endblock %}

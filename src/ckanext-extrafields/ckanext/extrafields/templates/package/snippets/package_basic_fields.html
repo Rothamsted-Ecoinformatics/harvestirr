@@ -160,6 +160,43 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 </select>
 <br><br>
 
+<!-- Strategic Area -->
+<label for="field-strategic_area">Strategic Area</label><br>
+<input type="text" id="field-strategic_area" placeholder="eg. Strategic Area" class="control-medium"
+  value="{{ data.strategic_area }}" name="strategic_area">
+<br><br>
+
+<!-- Site -->
+<label for="field-site">Site</label><br>
+<input type="text" id="field-site" placeholder="eg. Site" class="control-medium" value="{{ data.site }}" name="site">
+<br><br>
+
+<!-- Additional Information -->
+<label for="field-additional_information">Additional Information</label><br>
+<textarea id="field-additional_information" placeholder="eg. Additional Information" class="control-medium"
+  style="width: 500px; height: 50px;" name="additional_information"> {{ data.additional_information }} </textarea>
+<br><br>
+
+<!-- National Capability -->
+<label for="field-national_capability">Have you used National Capability data in this research? </label><br>
+<input type="text" id="field-national_capability" placeholder="eg. National Capability" class="control-medium"
+  value="{{ data.national_capability }}" name="national_capability">
+<br><br>
+
+<!-- National Capability List -->
+<label for="field-national_capability_list">If yes</label><br>
+<input type="text" id="field-national_capability_list" placeholder="eg. National Capability List" class="control-medium"
+  value="{{ data.national_capability_list }}" name="national_capability_list">
+<br><br>
+
+<!-- Patentable -->
+<label for="field-patentable">Is anything in this manuscript potentially patentable? </label><br>
+<select id="patentable" name="patentable">
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+<br><br>
+
 <style>
   #inputField {
     display: none;
