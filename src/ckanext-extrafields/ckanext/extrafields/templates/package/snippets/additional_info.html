@@ -151,4 +151,35 @@
   <td class="dataset-details">{{ pkg_dict.patentable }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.book_edition %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Book Edition") }}</th>
+  <td class="dataset-details">{{ pkg_dict.book_edition }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.book_series %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Book Series") }}</th>
+  <td class="dataset-details">{{ pkg_dict.book_series }}</td>
+</tr>
+{% endif %}
+##
+{% if pkg_dict.conference_type %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Conference Type") }}</th>
+  <td class="dataset-details">{{ pkg_dict.book_series }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.conference_location %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Conference Location") }}</th>
+  <td class="dataset-details">{{ pkg_dict.conference_location }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.conference_date %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Conference Event Date") }}</th>
+  <td class="dataset-details">{{ pkg_dict.conference_date }}</td>
+</tr>
+{% endif %}
 {% endblock %}

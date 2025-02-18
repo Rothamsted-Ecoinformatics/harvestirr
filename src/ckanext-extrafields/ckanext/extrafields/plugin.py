@@ -76,6 +76,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'patentable': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'book_edition': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'book_series': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],   
+            'conference_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'conference_location': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'conference_date': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -136,7 +146,17 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'national_capability_list': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'patentable': [tk.get_validator('ignore_missing'),
-                               tk.get_converter('convert_to_extras')],                                               
+                               tk.get_converter('convert_to_extras')],
+            'book_edition': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'book_series': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'conference_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'conference_location': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'conference_date': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],                                               
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -197,6 +217,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'patentable': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'book_edition': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'book_series': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_location': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_date': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -255,6 +285,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'national_capability_list': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'patentable': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'book_edition': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'book_series': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_location': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'conference_date': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             
         })

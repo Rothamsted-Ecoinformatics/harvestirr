@@ -202,43 +202,43 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
     display: none;
   }
 
-  .dataset_arrow {
+  .book_arrow {
     cursor: pointer;
     display: inline-block;
     margin-left: 10px;
     transition: transform 0.3s;
   }
 
-  .dataset_arrow.collapsed {
+  .book_arrow.collapsed {
     transform: rotate(180deg);
   }
 
-  .report_arrow {
+  .conference_arrow {
     cursor: pointer;
     display: inline-block;
     margin-left: 10px;
     transition: transform 0.3s;
   }
 
-  .report_arrow.collapsed {
+  .conference_arrow.collapsed {
     transform: rotate(180deg);
   }
 </style>
 
 <body>
-  <h3 id="datasetHeading">Dataset<span class="dataset_arrow">&#9660;</span></h3>
-  <div id="datasetField" style="display: none;">
-    <label for="dataset_name">Dataset Name</label><br>
-    <input type="text" id="dataset_name" name="dataset_name"><br><br>
-    <label for="dataset_id>Dataset ID">Dataset ID</label><br>
-    <input type="text" id="dataset_id" name="dataset_id"><br><br>
+  <h3 id="bookHeading">book<span class="book_arrow">&#9660;</span></h3>
+  <div id="bookField" style="display: none;">
+    <label for="book_edition">book edition</label><br>
+    <input type="text" id="book_edition" name="book_edition" value="{{ data.book_edition }}"><br><br>
+    <label for="book_series">book series</label><br>
+    <input type="text" id="book_series" name="book_series" value="{{ data.book_series }}"><br><br>
   </div>
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
   <script>
 
-    document.getElementById('datasetHeading').addEventListener('click', function () {
-      var inputField = document.getElementById('datasetField');
-      var arrow = document.querySelector('.dataset_arrow');
+    document.getElementById('bookHeading').addEventListener('click', function () {
+      var inputField = document.getElementById('bookField');
+      var arrow = document.querySelector('.book_arrow');
       if (inputField.style.display === 'none') {
         inputField.style.display = 'block';
         arrow.classList.add('collapsed');
@@ -249,20 +249,23 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
     });
   </script>
 
-  <h3 id="reportHeading">Report<span class="report_arrow">&#9660;</span></h3>
-  <div id="reportField" style="display: none;">
-    <label for="report_name">Report Name</label><br>
-    <input type="text" id="report_name" name="report_name"><br><br>
-    <label for="report_id">Report ID</label><br>
-    <input type="text" id="report_id" name="report_id"><br><br>
+  <h3 id="conferenceHeading">conference<span class="conference_arrow">&#9660;</span></h3>
+  <div id="conferenceField" style="display: none;">
+    <label for="conference_type">conference type</label><br>
+    <input type="text" id="conference_type" name="conference_type" value="{{ data.conference_type }}"><br><br>
+    <label for="conference_location">conference location</label><br>
+    <input type="text" id="conference_location" name="conference_location" value="{{ data.conference_location }}"><br><br>
+    <label for="conference_date">conference date</label><br>
+    <input type="date" id="conference_date" name="conference_date" value="{{ data.conference_date }}"><br><br>
+
   </div>
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
   <script>
 
-    document.getElementById('reportHeading').addEventListener('click', function () {
-      var inputField = document.getElementById('reportField');
-      var arrow = document.querySelector('.report_arrow');
+    document.getElementById('conferenceHeading').addEventListener('click', function () {
+      var inputField = document.getElementById('conferenceField');
+      var arrow = document.querySelector('.conference_arrow');
       if (inputField.style.display === 'none') {
         inputField.style.display = 'block';
         arrow.classList.add('collapsed');
