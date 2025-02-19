@@ -196,6 +196,9 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
   <option value="no">No</option>
 </select>
 <br><br>
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
+
+
 
 <style>
   #inputField {
@@ -275,5 +278,31 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
       }
     });
   </script>
+
+
+<!-- thesis type -->
+<label for="field-thesis_type">Thesis Type</label><br>
+<select id="field-thesis_type" class="control-medium" name="thesis_type">
+  <option value="MPhil Thesis">MPhil Thesis</option>
+  <option value="Masters Thesis">Masters Thesis</option>
+  <option value="PhD Thesis">PhD Thesis</option>
+  <option value="Prof Doc Thesis">Prof Doc Thesis</option>
+</select>
+<br><br>
+<script>
+  if ("{{ data.thesis_type }}") {
+    document.getElementById("field-thesis_type").value = "{{ data.thesis_type }}";
+  }
+</script>
+
+<!-- thesis qualification name -->
+<label for="field-thesis_qualification_name">Thesis Qualification Name</label><br>
+<input type="text" id="field-thesis_qualification_name" placeholder="eg. Thesis Qualification Name"
+  class="control-medium" value="{{ data.thesis_qualification_name }}" name="thesis_qualification_name">
+<br><br>
+
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
+
+
 </body>
 {% endblock %}

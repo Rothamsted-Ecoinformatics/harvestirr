@@ -181,4 +181,16 @@
   <td class="dataset-details">{{ pkg_dict.conference_date }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.thesis_type %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Thesis Type") }}</th>
+  <td class="dataset-details">{{ pkg_dict.thesis_type }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.thesis_qualification_name %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Thesis_qualification_name") }}</th>
+  <td class="dataset-details">{{ pkg_dict.thesis_qualification_name }}</td>
+</tr>
+{% endif %}
 {% endblock %}
