@@ -96,6 +96,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'patent_id': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'dataset_version': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_content': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -176,7 +182,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'patent_applicant': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'patent_id': [tk.get_validator('ignore_missing'),
-                              tk.get_converter('convert_to_extras')],                         
+                              tk.get_converter('convert_to_extras')],
+            'dataset_version': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_content': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],                         
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -257,6 +269,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'patent_id': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'dataset_version': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_content': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -335,6 +353,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'patent_applicant': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'patent_id': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_version': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_content': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             
         })

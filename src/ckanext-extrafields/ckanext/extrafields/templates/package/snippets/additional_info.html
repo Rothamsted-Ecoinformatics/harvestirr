@@ -211,4 +211,22 @@
   <td class="dataset-details">{{ pkg_dict.patent_id }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.dataset_version %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset Version") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_version }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_data_type %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset data type") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_data_type }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_content %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset Content") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_content }}</td>
+</tr>
+{% endif %}
 {% endblock %}
