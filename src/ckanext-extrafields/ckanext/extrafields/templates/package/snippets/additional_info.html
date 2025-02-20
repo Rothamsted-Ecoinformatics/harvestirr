@@ -193,4 +193,22 @@
   <td class="dataset-details">{{ pkg_dict.thesis_qualification_name }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.patent_type %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Patent Type") }}</th>
+  <td class="dataset-details">{{ pkg_dict.patent_type }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.patent_applicant %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Patent Applicant") }}</th>
+  <td class="dataset-details">{{ pkg_dict.patent_applicant }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.patent_id %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Patent ID") }}</th>
+  <td class="dataset-details">{{ pkg_dict.patent_id }}</td>
+</tr>
+{% endif %}
 {% endblock %}

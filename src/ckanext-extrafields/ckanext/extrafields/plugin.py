@@ -90,6 +90,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'thesis_qualification_name': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'patent_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'patent_applicant': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'patent_id': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -164,7 +170,13 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'thesis_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],           
             'thesis_qualification_name': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],                              
+                            tk.get_converter('convert_to_extras')],     
+            'patent_type': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'patent_applicant': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'patent_id': [tk.get_validator('ignore_missing'),
+                              tk.get_converter('convert_to_extras')],                         
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -239,6 +251,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'thesis_qualification_name': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'patent_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'patent_applicant': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'patent_id': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -312,6 +330,12 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'thesis_qualification_name': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],   
+            'patent_type': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'patent_applicant': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'patent_id': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
             
         })
         return schema

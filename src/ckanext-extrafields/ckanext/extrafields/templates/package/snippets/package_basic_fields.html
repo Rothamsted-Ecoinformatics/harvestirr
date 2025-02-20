@@ -12,22 +12,22 @@
 {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
 error=errors.author, classes=['control-medium']) }}
 
-{{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'),
+<!-- {{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'),
 value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
-{% endblock %}
+{% endblock %} -->
 
 <!-- Contributor Name -->
-<label for="field-contributor_name">Contributor Name</label><br>
+<label for="field-contributor_name"> Other Contributor Name</label><br>
 <input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium"
   value="{{ data.contributor_name }}">
 <br><br>
-<!-- Contributor Email -->
+<!-- Contributor Email
 <label for="field-contributor_email">Contributor Email</label><br>
 <input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium"
   value="{{ data.contributor_email }}" name="contributor_email">
-<br><br>
+<br><br> -->
 <!-- Contributor Type -->
-<label for="field-contributor_type">Contributor Type</label><br>
+<label for="field-contributor_type"> Other Contributor Type</label><br>
 <input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium"
   value="{{ data.contributor_type }}" name="contributor_type">
 <br><br>
@@ -302,6 +302,32 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 <br><br>
 
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
+
+<!-- Patent Type -->
+<label for="field-patent_type">Patent Type</label><br>
+<select id="field-patent_type" class="control-medium" name="patent_type">
+  <option value="granted">Patent Granted</option>
+  <option value="applied">Patent Applied for</option>
+  <option value="N/A">N/A</option>
+</select>
+<br><br>
+<script>
+  if ("{{ data.patent_type }}") {
+    document.getElementById("field-patent_type").value = "{{ data.patent_type }}";
+  }
+</script>
+
+<!-- Patent Applicant -->
+<label for="field-patent_applicant">Patent Applicant</label><br>
+<input type="text" id="field-patent_applicant" placeholder="eg. Patent Applicant" class="control-medium"
+  value="{{ data.patent_applicant }}" name="patent_applicant">
+<br><br>
+
+<!-- Patent ID -->
+<label for="field-patent_id">Patent ID</label><br>
+<input type="text" id="field-patent_id" placeholder="eg. Patent ID" class="control-medium" value="{{ data.patent_id }}"
+  name="patent_id">
+<br><br>
 
 
 </body>
