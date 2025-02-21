@@ -102,6 +102,18 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_content': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'dataset_collection_start': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_collection_end': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_collection_method': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_prep_method': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_retention_date': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_retention_action': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -188,7 +200,19 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'dataset_data_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'dataset_content': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],                         
+                            tk.get_converter('convert_to_extras')],     
+            'dataset_collection_start': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_collection_end': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_collection_method': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_prep_method': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_data_retention_date': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'dataset_retention_action': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],                    
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -275,6 +299,18 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_content': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'dataset_collection_start': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_collection_end': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_collection_method': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_prep_method': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_retention_date': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_retention_action': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
@@ -359,6 +395,18 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'dataset_data_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'dataset_content': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_collection_start': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_collection_end': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_collection_method': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_prep_method': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_data_retention_date': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             
         })

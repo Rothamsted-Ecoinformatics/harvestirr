@@ -229,4 +229,40 @@
   <td class="dataset-details">{{ pkg_dict.dataset_content }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.dataset_collection_start %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset Collection Start") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_collection_start }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_collection_end %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset Collection End") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_collection_end }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_collection_method %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Dataset Collection Method") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_collection_method }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_data_prep_method %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Data preparation and processing activities") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_data_prep_method }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_data_retention_date %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Retention review date ") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_data_retention_date }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.dataset_retention_action %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Retention review action") }}</th>
+  <td class="dataset-details">{{ pkg_dict.dataset_retention_action }}</td>
+</tr>
+{% endif %}
 {% endblock %}
