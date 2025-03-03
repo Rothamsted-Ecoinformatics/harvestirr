@@ -68,8 +68,6 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 <textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
   style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
 <br><br>
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
-<label><strong>Journal citation</strong></label><br>
 
 <!-- Journal -->
 <label for="field-journal">Journal</label><br>
@@ -82,6 +80,10 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 <input type="text" id="field-publisher" placeholder="Publisher Name" class="control-medium" value="{{ data.publisher }}"
   name="publisher">
 <br><br>
+
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
+<label><strong>Journal citation</strong></label><br>
+
 
 
 <!-- Journal Volume -->
@@ -271,7 +273,8 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
     <label for="conference_type">conference type</label><br>
     <input type="text" id="conference_type" name="conference_type" value="{{ data.conference_type }}"><br><br>
     <label for="conference_location">conference location</label><br>
-    <input type="text" id="conference_location" name="conference_location" value="{{ data.conference_location }}"><br><br>
+    <input type="text" id="conference_location" name="conference_location"
+      value="{{ data.conference_location }}"><br><br>
     <label for="conference_date">conference date</label><br>
     <input type="date" id="conference_date" name="conference_date" value="{{ data.conference_date }}"><br><br>
 
@@ -294,103 +297,112 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
   </script>
 
 
-<!-- thesis type -->
-<label for="field-thesis_type">Thesis Type</label><br>
-<select id="field-thesis_type" class="control-medium" name="thesis_type">
-  <option value="MPhil Thesis">MPhil Thesis</option>
-  <option value="Masters Thesis">Masters Thesis</option>
-  <option value="PhD Thesis">PhD Thesis</option>
-  <option value="Prof Doc Thesis">Prof Doc Thesis</option>
-</select>
-<br><br>
-<script>
-  if ("{{ data.thesis_type }}") {
-    document.getElementById("field-thesis_type").value = "{{ data.thesis_type }}";
-  }
-</script>
+  <!-- thesis type -->
+  <label for="field-thesis_type">Thesis Type</label><br>
+  <select id="field-thesis_type" class="control-medium" name="thesis_type">
+    <option value="MPhil Thesis">MPhil Thesis</option>
+    <option value="Masters Thesis">Masters Thesis</option>
+    <option value="PhD Thesis">PhD Thesis</option>
+    <option value="Prof Doc Thesis">Prof Doc Thesis</option>
+  </select>
+  <br><br>
+  <script>
+    if ("{{ data.thesis_type }}") {
+      document.getElementById("field-thesis_type").value = "{{ data.thesis_type }}";
+    }
+  </script>
 
-<!-- thesis qualification name -->
-<label for="field-thesis_qualification_name">Thesis Qualification Name</label><br>
-<input type="text" id="field-thesis_qualification_name" placeholder="eg. Thesis Qualification Name"
-  class="control-medium" value="{{ data.thesis_qualification_name }}" name="thesis_qualification_name">
-<br><br>
+  <!-- thesis qualification name -->
+  <label for="field-thesis_qualification_name">Thesis Qualification Name</label><br>
+  <input type="text" id="field-thesis_qualification_name" placeholder="eg. Thesis Qualification Name"
+    class="control-medium" value="{{ data.thesis_qualification_name }}" name="thesis_qualification_name">
+  <br><br>
 
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
-<!-- Patent Type -->
-<label for="field-patent_type">Patent Type</label><br>
-<select id="field-patent_type" class="control-medium" name="patent_type">
-  <option value="granted">Patent Granted</option>
-  <option value="applied">Patent Applied for</option>
-  <option value="N/A">N/A</option>
-</select>
-<br><br>
-<script>
-  if ("{{ data.patent_type }}") {
-    document.getElementById("field-patent_type").value = "{{ data.patent_type }}";
-  }
-</script>
+  <!-- Patent Type -->
+  <label for="field-patent_type">Patent Type</label><br>
+  <select id="field-patent_type" class="control-medium" name="patent_type">
+    <option value="granted">Patent Granted</option>
+    <option value="applied">Patent Applied for</option>
+    <option value="N/A">N/A</option>
+  </select>
+  <br><br>
+  <script>
+    if ("{{ data.patent_type }}") {
+      document.getElementById("field-patent_type").value = "{{ data.patent_type }}";
+    }
+  </script>
 
-<!-- Patent Applicant -->
-<label for="field-patent_applicant">Patent Applicant</label><br>
-<input type="text" id="field-patent_applicant" placeholder="eg. Patent Applicant" class="control-medium"
-  value="{{ data.patent_applicant }}" name="patent_applicant">
-<br><br>
+  <!-- Patent Applicant -->
+  <label for="field-patent_applicant">Patent Applicant</label><br>
+  <input type="text" id="field-patent_applicant" placeholder="eg. Patent Applicant" class="control-medium"
+    value="{{ data.patent_applicant }}" name="patent_applicant">
+  <br><br>
 
-<!-- Patent ID -->
-<label for="field-patent_id">Patent ID</label><br>
-<input type="text" id="field-patent_id" placeholder="eg. Patent ID" class="control-medium" value="{{ data.patent_id }}"
-  name="patent_id">
-<br><br>
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
+  <!-- Patent ID -->
+  <label for="field-patent_id">Patent ID</label><br>
+  <input type="text" id="field-patent_id" placeholder="eg. Patent ID" class="control-medium"
+    value="{{ data.patent_id }}" name="patent_id">
+  <br><br>
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 
-<!-- Dataset Version -->  
-<label for="field-dataset_version">Dataset Version</label><br>
-<input type="text" id="field-dataset_version" placeholder="eg. Dataset Version" class="control-medium" value="{{ data.dataset_version }}" name="dataset_version">
-<br><br>
+  <!-- Dataset Version -->
+  <label for="field-dataset_version">Dataset Version</label><br>
+  <input type="text" id="field-dataset_version" placeholder="eg. Dataset Version" class="control-medium"
+    value="{{ data.dataset_version }}" name="dataset_version">
+  <br><br>
 
-<!-- Dataset Data Type -->
-<label for="field-dataset_data_type">Dataset Data Type</label><br>
-<input type="text" id="field-dataset_data_type" placeholder="eg. Dataset Data Type" class="control-medium" value="{{ data.dataset_data_type }}" name="dataset_data_type">
-<br><br>
+  <!-- Dataset Data Type -->
+  <label for="field-dataset_data_type">Dataset Data Type</label><br>
+  <input type="text" id="field-dataset_data_type" placeholder="eg. Dataset Data Type" class="control-medium"
+    value="{{ data.dataset_data_type }}" name="dataset_data_type">
+  <br><br>
 
-<!-- Dataset Content -->
-<label for="field-dataset_content">Dataset Content</label><br>
-<input type="text" id="field-dataset_content" placeholder="eg. Dataset Content" class="control-medium" value="{{ data.dataset_content }}" name="dataset_content">
-<br><br>
+  <!-- Dataset Content -->
+  <label for="field-dataset_content">Dataset Content</label><br>
+  <input type="text" id="field-dataset_content" placeholder="eg. Dataset Content" class="control-medium"
+    value="{{ data.dataset_content }}" name="dataset_content">
+  <br><br>
 
-<!-- Dataset Collection Start -->
-<label for="field-dataset_collection_start">Dataset Collection Start</label><br>
-<input type="date" id="field-dataset_collection_start" placeholder="eg. Dataset Collection Start" class="control-medium" value="{{ data.dataset_collection_start }}" name="dataset_collection_start">
-<br><br>
+  <!-- Dataset Collection Start -->
+  <label for="field-dataset_collection_start">Dataset Collection Start</label><br>
+  <input type="date" id="field-dataset_collection_start" placeholder="eg. Dataset Collection Start"
+    class="control-medium" value="{{ data.dataset_collection_start }}" name="dataset_collection_start">
+  <br><br>
 
-<!-- Dataset Collection End -->
-<label for="field-dataset_collection_end">Dataset Collection End</label><br>
-<input type="date" id="field-dataset_collection_end" placeholder="eg. Dataset Collection End" class="control-medium" value="{{ data.dataset_collection_end }}" name="dataset_collection_end">
-<br><br>
+  <!-- Dataset Collection End -->
+  <label for="field-dataset_collection_end">Dataset Collection End</label><br>
+  <input type="date" id="field-dataset_collection_end" placeholder="eg. Dataset Collection End" class="control-medium"
+    value="{{ data.dataset_collection_end }}" name="dataset_collection_end">
+  <br><br>
 
-<!-- Dataset Collection Method -->
-<label for="field-dataset_collection_method">Dataset Collection Method</label><br>
-<input type="text" id="field-dataset_collection_method" placeholder="eg. Dataset Collection Method" class="control-medium" value="{{ data.dataset_collection_method }}" name="dataset_collection_method">
-<br><br>
+  <!-- Dataset Collection Method -->
+  <label for="field-dataset_collection_method">Dataset Collection Method</label><br>
+  <input type="text" id="field-dataset_collection_method" placeholder="eg. Dataset Collection Method"
+    class="control-medium" value="{{ data.dataset_collection_method }}" name="dataset_collection_method">
+  <br><br>
 
-<!-- Dataset Data Prep Method -->
-<label for="field-dataset_data_prep_method">Data preparation and processing activities</label><br>
-<input type="text" id="field-dataset_data_prep_method" placeholder="eg. Data preparation and processing activities" class="control-medium" value="{{ data.dataset_data_prep_method }}" name="dataset_data_prep_method">
-<br><br>
+  <!-- Dataset Data Prep Method -->
+  <label for="field-dataset_data_prep_method">Data preparation and processing activities</label><br>
+  <input type="text" id="field-dataset_data_prep_method" placeholder="eg. Data preparation and processing activities"
+    class="control-medium" value="{{ data.dataset_data_prep_method }}" name="dataset_data_prep_method">
+  <br><br>
 
-<!-- Dataset Data Retention Date -->
-<label for="field-dataset_data_retention_date">Dataset Data Retention Date</label><br>
-<input type="date" id="field-dataset_data_retention_date" placeholder="eg. Dataset Data Retention Date" class="control-medium" value="{{ data.dataset_data_retention_date }}" name="dataset_data_retention_date">
-<br><br>
+  <!-- Dataset Data Retention Date -->
+  <label for="field-dataset_data_retention_date">Dataset Data Retention Date</label><br>
+  <input type="date" id="field-dataset_data_retention_date" placeholder="eg. Dataset Data Retention Date"
+    class="control-medium" value="{{ data.dataset_data_retention_date }}" name="dataset_data_retention_date">
+  <br><br>
 
-<!-- Dataset Retention Action -->
-<label for="field-dataset_retention_action">Dataset Retention Action</label><br>
-<input type="text" id="field-dataset_retention_action" placeholder="eg. Dataset Retention Action" class="control-medium" value="{{ data.dataset_retention_action }}" name="dataset_retention_action">
-<br><br>
+  <!-- Dataset Retention Action -->
+  <label for="field-dataset_retention_action">Dataset Retention Action</label><br>
+  <input type="text" id="field-dataset_retention_action" placeholder="eg. Dataset Retention Action"
+    class="control-medium" value="{{ data.dataset_retention_action }}" name="dataset_retention_action">
+  <br><br>
 
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 
 </body>
