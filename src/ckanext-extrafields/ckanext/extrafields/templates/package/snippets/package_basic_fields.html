@@ -70,6 +70,20 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 <br><br>
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 <label><strong>Journal citation</strong></label><br>
+
+<!-- Journal -->
+<label for="field-journal">Journal</label><br>
+<input type="text" id="field-journal" placeholder="Journal of Example" class="control-medium" value="{{ data.journal }}"
+  name="journal">
+<br><br>
+
+<!-- Publisher -->
+<label for="field-publisher">Publisher</label><br>
+<input type="text" id="field-publisher" placeholder="Publisher Name" class="control-medium" value="{{ data.publisher }}"
+  name="publisher">
+<br><br>
+
+
 <!-- Journal Volume -->
 <label for="field-journal_volume">Journal Volume</label><br>
 <input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium"

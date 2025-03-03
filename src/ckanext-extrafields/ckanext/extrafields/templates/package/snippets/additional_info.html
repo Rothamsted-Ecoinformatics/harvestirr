@@ -31,6 +31,18 @@
   <td class="dataset-details">{{ pkg_dict.contributor_type }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.journal %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Journal") }}</th>
+  <td class="dataset-details">{{ pkg_dict.journal }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.publisher %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Publisher") }}</th>
+  <td class="dataset-details">{{ pkg_dict.publisher }}</td>
+</tr>
+{% endif %}
 {% if pkg_dict.journal_volume %}
 <tr>
   <th scope="row" class="dataset-label">{{ _("Journal Volume") }}</th>
