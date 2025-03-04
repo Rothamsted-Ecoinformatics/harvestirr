@@ -1,6 +1,8 @@
 {% ckan_extends %}
 
 {# You could remove 'free extras' from the package form like this, but we keep them for this example's tests.
+{% block alternative_name %}
+{% endblock %}
 {% block publication_type %}
 {% endblock %}
 {% block publication_year %}
@@ -92,5 +94,15 @@
 {% block dataset_data_retention_date %}
 {% endblock %}
 {% block dataset_retention_action %}
+{% endblock %}
+{% block journal_issn %}
+{% endblock %}
+{% block journal_publisher %}
+{% endblock %}
+{% block journal_impact_factor %}
+{% endblock %}
+{% block journal_notes %}
+{% endblock %}
+{% block publisher_notes %}
 {% endblock %}
 #}

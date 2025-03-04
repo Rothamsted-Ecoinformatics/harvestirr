@@ -22,6 +22,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             ExampleIDatasetFormPlugin, self).create_package_schema()
         # our custom field
         schema.update({
+            'alternative_name': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
@@ -114,6 +116,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'journal_issn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_publisher': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_impact_factor': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_notes': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publisher_notes': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -121,6 +133,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             ExampleIDatasetFormPlugin, self).update_package_schema()
         # our custom field
         schema.update({
+            'alternative_name': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
@@ -212,6 +226,16 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'dataset_data_retention_date': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_issn': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_publisher': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_impact_factor': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'journal_notes': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
+            'publisher_notes': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],                    
         })
         return schema
@@ -219,6 +243,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
         schema: Schema = super(
             ExampleIDatasetFormPlugin, self).show_package_schema()
         schema.update({
+            'alternative_name': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_year': [tk.get_converter('convert_from_extras'),
@@ -311,11 +337,23 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'journal_issn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_publisher': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_impact_factor': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_notes': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publisher_notes': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
         })
         return schema
         schema: Schema = super(
             ExampleIDatasetFormPlugin, self).show_package_schema()
         schema.update({
+            'alternative_name': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_year': [tk.get_converter('convert_from_extras'),
@@ -408,6 +446,17 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'journal_issn': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_publisher': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_impact_factor': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'journal_notes': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'publisher_notes': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            
             
         })
         return schema

@@ -1,6 +1,12 @@
 {% ckan_extends %}
 
 {% block extras %}
+{% if pkg_dict.alternative_name %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Alternative Name") }}</th>
+  <td class="dataset-details">{{ pkg_dict.alternative_name }}</td>
+</tr>
+{% endif %}
 {% if pkg_dict.publication_type %}
 <tr>
   <th scope="row" class="dataset-label">{{ _("Publication Type") }}</th>
@@ -275,6 +281,36 @@
 <tr>
   <th scope="row" class="dataset-label">{{ _("Retention review action") }}</th>
   <td class="dataset-details">{{ pkg_dict.dataset_retention_action }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.journal_issn %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Journal ISSN") }}</th>
+  <td class="dataset-details">{{ pkg_dict.journal_issn }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.journal_publisher %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Journal Publisher") }}</th>
+  <td class="dataset-details">{{ pkg_dict.journal_publisher }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.journal_impact_factor %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Journal Impact Factor") }}</th>
+  <td class="dataset-details">{{ pkg_dict.journal_impact_factor }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.journal_notes %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Journal Notes") }}</th>
+  <td class="dataset-details">{{ pkg_dict.journal_notes }}</td>
+</tr>
+{% endif %}
+{% if pkg_dict.publisher_notes %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Publisher Notes") }}</th>
+  <td class="dataset-details">{{ pkg_dict.publisher_notes }}</td>
 </tr>
 {% endif %}
 {% endblock %}
