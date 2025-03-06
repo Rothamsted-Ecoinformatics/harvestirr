@@ -116,16 +116,7 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
-            'journal_issn': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_publisher': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_impact_factor': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_notes': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'publisher_notes': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
+
         })
         return schema
     def update_package_schema(self) -> Schema:
@@ -227,16 +218,7 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
-            'journal_issn': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_publisher': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_impact_factor': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'journal_notes': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],
-            'publisher_notes': [tk.get_validator('ignore_missing'),
-                            tk.get_converter('convert_to_extras')],                    
+                   
         })
         return schema
     def show_package_schema(self) -> Schema:
@@ -337,16 +319,7 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
-            'journal_issn': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_publisher': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_impact_factor': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_notes': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'publisher_notes': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
+
         })
         return schema
         schema: Schema = super(
@@ -446,16 +419,7 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
-            'journal_issn': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_publisher': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_impact_factor': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'journal_notes': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
-            'publisher_notes': [tk.get_converter('convert_from_extras'),
-                            tk.get_validator('ignore_missing')],
+            
             
             
         })

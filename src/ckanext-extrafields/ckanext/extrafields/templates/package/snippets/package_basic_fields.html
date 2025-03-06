@@ -422,45 +422,7 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
 
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
  
- <!-- Others - Journal  -->
-  <h3 id="journalHeading">Journal<span class="journal_arrow">&#9660;</span></h3>
 
-<!-- journal issn -->
-<label for="field-journal_issn">Journal ISSN</label><br>
-<input type="text" id="field-journal_issn" placeholder="eg. Journal ISSN" class="control-medium"
-  value="{{ data.journal_issn }}" name="journal_issn">
-<br><br>
-
-<!-- journal publisher -->
-<label for="field-journal_publisher">Journal Publisher</label><br>
-<input type="text" id="field-journal_publisher" placeholder="eg. Journal Publisher" class="control-medium"
-  value="{{ data.journal_publisher }}" name="journal_publisher">
-<br><br>
-
-<!-- journal impact factor -->
-<label for="field-journal_impact_factor">Journal Impact Factor</label><br>
-<input type="text" id="field-journal_impact_factor" placeholder="eg. Journal Impact Factor" class="control-medium"
-  value="{{ data.journal_impact_factor }}" name="journal_impact_factor">
-<br><br>
-
-<!-- journal notes -->
-<label for="field-journal_notes">Journal Notes</label><br>
-<textarea id="field-journal_notes" placeholder="eg. Journal Notes" class="control-medium"
-  style="width: 500px; height: 50px;" name="journal_notes"> {{ data.journal_notes }} </textarea>
-<br><br>
-
-
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-<h3 id="publihserHeading">Publisher<span class="publisher_arrow">&#9660;</span></h3>
-
-
-<!-- Publisher Notes -->
-<label for="field-publisher_notes">Publisher Notes</label><br>
-<textarea id="field-publisher_notes" placeholder="eg. Publisher Notes" class="control-medium"
-  style="width: 500px; height: 50px;" name="publisher_notes"> {{ data.publisher_notes }} </textarea>
-<br><br>
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 </body>
 {% endblock %}
