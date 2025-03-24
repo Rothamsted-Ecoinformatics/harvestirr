@@ -49,43 +49,13 @@ error=errors.author, classes=['control-medium']) }}
 <input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium"
   value="{{ data.contributor_name }}">
 <br><br>
-<!-- Contributor Email
-<label for="field-contributor_email">Contributor Email</label><br>
-<input type="email" id="field-contributor_email" placeholder="joe@example.com" class="control-medium"
-  value="{{ data.contributor_email }}" name="contributor_email">
-<br><br> -->
+
 <!-- Contributor Type -->
 <label for="field-contributor_type"> Other Contributor Type</label><br>
 <input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium"
   value="{{ data.contributor_type }}" name="contributor_type">
 <br><br>
-<!-- Publication Type -->
-<label for="field-publication_type">Publication Type</label><br>
-<select id="field-publication_type" class="control-medium" name="publication_type"> >
-  <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
-  <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
-  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
-    societies</option>
-  <option value="Report">Report</option>
-  <option value="Preprint article">Preprint article</option>
-  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member,
-    alone/with others</option>
-  <option value="Theses">Theses</option>
-  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other
-    technical publications</option>
-  <option value="Patents">Patents</option>
-  <option value="Computer programs">Computer programs</option>
-  <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database</option>
-  <option value="Plant variety">Plant variety</option>
-  <option value="Agricultural models">Agricultural models</option>
-  <option value="Datasets">Datasets</option>
-</select>
-<br><br>
-<script>
-  if ("{{ data.publication_type }}") {
-    document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
-  }
-</script>
+
 <!-- Publication Year -->
 <label for="field-publication_date">Publication Date</label><br>
 <input type="date" id="field-publication_date" class="control-medium" name="publication_date" value="{{ data.publication_year }}">
@@ -195,6 +165,35 @@ error=errors.author, classes=['control-medium']) }}
   <option value="no">No</option>
 </select>
 <br><br>
+
+<!-- Publication Type -->
+<label for="field-publication_type">Publication Type</label><br>
+<select id="field-publication_type" class="control-medium" name="publication_type"> >
+  <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
+  <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
+  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
+    societies</option>
+  <option value="Report">Report</option>
+  <option value="Preprint article">Preprint article</option>
+  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member,
+    alone/with others</option>
+  <option value="Theses">Theses</option>
+  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other
+    technical publications</option>
+  <option value="Patents">Patents</option>
+  <option value="Computer programs">Computer programs</option>
+  <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database</option>
+  <option value="Plant variety">Plant variety</option>
+  <option value="Agricultural models">Agricultural models</option>
+  <option value="Datasets">Datasets</option>
+</select>
+<br><br>
+<script>
+  if ("{{ data.publication_type }}") {
+    document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
+  }
+</script>
+
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 <!-- Journal -->
@@ -255,60 +254,21 @@ error=errors.author, classes=['control-medium']) }}
 <input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
   name="pubMedID">
 <br><br>
-<style>
-  #inputField {
-    display: none;
-  }
 
-  .book_arrow {
-    cursor: pointer;
-    display: inline-block;
-    margin-left: 10px;
-    transition: transform 0.3s;
-  }
-
-  .book_arrow.collapsed {
-    transform: rotate(180deg);
-  }
-
-  .conference_arrow {
-    cursor: pointer;
-    display: inline-block;
-    margin-left: 10px;
-    transition: transform 0.3s;
-  }
-
-  .conference_arrow.collapsed {
-    transform: rotate(180deg);
-  }
-</style>
 
 <body>
-  <h3 id="bookHeading">book<span class="book_arrow">&#9660;</span></h3>
-  <div id="bookField" style="display: none;">
+  <h3 id="bookHeading">book</h3>
+  <div id="bookField" >
     <label for="book_edition">book edition</label><br>
     <input type="text" id="book_edition" name="book_edition" value="{{ data.book_edition }}"><br><br>
     <label for="book_series">book series</label><br>
     <input type="text" id="book_series" name="book_series" value="{{ data.book_series }}"><br><br>
   </div>
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
-  <script>
 
-    document.getElementById('bookHeading').addEventListener('click', function () {
-      var inputField = document.getElementById('bookField');
-      var arrow = document.querySelector('.book_arrow');
-      if (inputField.style.display === 'none') {
-        inputField.style.display = 'block';
-        arrow.classList.add('collapsed');
-      } else {
-        inputField.style.display = 'none';
-        arrow.classList.remove('collapsed');
-      }
-    });
-  </script>
 
-  <h3 id="conferenceHeading">conference<span class="conference_arrow">&#9660;</span></h3>
-  <div id="conferenceField" style="display: none;">
+  <h3 id="conferenceHeading">conference</h3>
+  <div id="conferenceField">
     <label for="conference_type">conference type</label><br>
     <input type="text" id="conference_type" name="conference_type" value="{{ data.conference_type }}"><br><br>
     <label for="conference_location">conference location</label><br>
@@ -320,22 +280,8 @@ error=errors.author, classes=['control-medium']) }}
   </div>
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
-  <script>
 
-    document.getElementById('conferenceHeading').addEventListener('click', function () {
-      var inputField = document.getElementById('conferenceField');
-      var arrow = document.querySelector('.conference_arrow');
-      if (inputField.style.display === 'none') {
-        inputField.style.display = 'block';
-        arrow.classList.add('collapsed');
-      } else {
-        inputField.style.display = 'none';
-        arrow.classList.remove('collapsed');
-      }
-    });
-  </script>
-
-<h3 id="thesisHeading">Thesis<span class="thesis_arrow">&#9660;</span></h3>
+<h3 id="thesisHeading">Thesis</h3>
 
   <!-- thesis type -->
   <label for="field-thesis_type">Thesis Type</label><br>
@@ -360,7 +306,7 @@ error=errors.author, classes=['control-medium']) }}
 
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
-  <h3 id="patentHeading">Patent<span class="patent_arrow">&#9660;</span></h3>
+  <h3 id="patentHeading">Patent</h3>
 
   <!-- Patent Type -->
   <label for="field-patent_type">Patent Type</label><br>
@@ -390,7 +336,7 @@ error=errors.author, classes=['control-medium']) }}
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
   <!-- Dataset -->
-  <h3 id="datasetHeading">Dataset<span class="dataset_arrow">&#9660;</span></h3>
+  <h3 id="datasetHeading">Dataset</h3>
 
   <!-- Dataset Version -->
   <label for="field-dataset_version">Dataset Version</label><br>
