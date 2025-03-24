@@ -116,6 +116,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'embargo_period': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
 
         })
         return schema
@@ -218,6 +220,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_converter('convert_to_extras')],
             'dataset_retention_action': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'embargo_period': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
                    
         })
         return schema
@@ -319,6 +323,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'embargo_period': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
 
         })
         return schema
@@ -418,6 +424,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             'dataset_data_retention_date': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'dataset_retention_action': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'embargo_period': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             
             

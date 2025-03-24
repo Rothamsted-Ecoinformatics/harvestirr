@@ -8,6 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<!-- 
+#######################
+#######################
+#### Common Fields #### 
+####################### 
+#######################
+#######################
+-->
+
+
+
 <!-- Alternative Name -->
 <label for="field-alternative_name">Alternative Name</label><br>
 <input type="text" id="field-alternative_name" placeholder="eg. Alternative Name" class="control-medium"
@@ -18,10 +29,20 @@
 {% block package_metadata_author %}
 {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
 error=errors.author, classes=['control-medium']) }}
+{% endblock %}
+<!-- Abstract -->
+<label for="field-abstract">Abstract</label><br>
+<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
+  style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
+<br><br>
 
-<!-- {{ form.input('author_email', label=_('Author Email'), id='field-author-email', placeholder=_('joe@example.com'),
-value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
-{% endblock %} -->
+
+<!-- Keywords -->
+ 
+{% block package_basic_fields_tags %}
+  {% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source': '/api/2/util/tag/autocomplete?incomplete=?'} %}
+  {{ form.input('tag_string', id='field-tags', label=_('Keywords'), placeholder=_('eg. economy, mental health, government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
+{% endblock %}
 
 <!-- Contributor Name -->
 <label for="field-contributor_name"> Other Contributor Name</label><br>
@@ -66,15 +87,115 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
   }
 </script>
 <!-- Publication Year -->
-<label for="field-publication_year">Publication Year</label><br>
-<input type="text" id="field-publication_year" placeholder="2025" class="control-medium"
-  value="{{ data.publication_year }}" name="publication_year">
+<label for="field-publication_date">Publication Date</label><br>
+<input type="date" id="field-publication_date" class="control-medium" name="publication_date" value="{{ data.publication_year }}">
 <br><br>
-<!-- Abstract -->
-<label for="field-abstract">Abstract</label><br>
-<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
-  style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
+
+<!-- Web Address -->
+<label for="field-webAddress">Web Address</label><br>
+<input type="text" id="field-webAddress" placeholder="http://example.com" class="control-medium"
+  value="{{ data.webAddress }}" name="webAddress">
 <br><br>
+
+<!-- Existing DOI -->
+<label for="field-existing_doi">Existing DOI</label><br>
+<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
+  value="{{ data.existing_doi }}" name="existing_doi">
+<br><br>
+
+<!-- Related Output -->
+<label for="field-relatedOutput">Related Output</label><br>
+<input type="text" id="field-relatedOutput" placeholder="eg. Related output" class="control-medium"
+  value="{{ data.relatedOutput }}" name="relatedOutput">
+<br><br>
+
+<!-- Open Access -->
+<label for="field-openAccess">Open Access</label><br>
+<select id="access" name="access">
+  <option value="green_open_access">Published as green open access</option>
+  <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
+  <option value="non_open_access">Published as non-open access</option>
+</select>
+<br><br>
+
+<!-- Funder Code -->
+<label for="field-funder_code">Funder Code</label><br>
+<input type="text" id="field-funder_code" placeholder="eg. Funder Code" class="control-medium"
+  value="{{ data.funder_code }}" name="funder_code">
+<br><br>
+
+<!-- Funder Name -->
+<label for="field-funder_name">Funder Name</label><br>
+<input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
+  value="{{ data.funder_name }}" name="funder_name">
+<br><br>
+
+<!-- Embargo Period -->
+<label for="field-embargo_period">Embargo Period</label><br>
+<input type="text" id="field-embargo_period" placeholder="eg. Embargo Period" class="control-medium"
+  value="{{ data.embargo_period }}" name="embargo_period">
+<br><br>
+
+<!-- Output Status -->
+<label for="field-output_status">Output Status</label><br>
+<select id="output_status" name="output_status">
+  <option value="published">Published</option>
+  <option value="submitted">Submitted</option>
+  <option value="in_preparation">In Preparation</option>
+  <option value="in_press">In Press</option>
+  <option value="unpublished">Unpublished</option>
+</select>
+<br><br>
+
+<!-- Strategic Area -->
+<label for="field-strategic_area">Strategic Area</label><br>
+<input type="text" id="field-strategic_area" placeholder="eg. Strategic Area" class="control-medium"
+  value="{{ data.strategic_area }}" name="strategic_area">
+<br><br>
+
+<!-- Site -->
+<label for="field-site">Site</label><br>
+<input type="text" id="field-site" placeholder="eg. Site" class="control-medium" value="{{ data.site }}" name="site">
+<br><br>
+
+<!-- Additional Information -->
+<label for="field-additional_information">Additional Information</label><br>
+<textarea id="field-additional_information" placeholder="eg. Additional Information" class="control-medium"
+  style="width: 500px; height: 50px;" name="additional_information"> {{ data.additional_information }} </textarea>
+<br><br>
+
+<!-- National Capability -->
+<label for="field-national_capability">National Capability</label><br>
+<select id="field-national_capability" class="control-medium" name="national_capability">
+  <option value="">Select an option</option>
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+<br><br>
+<script>
+  if ("{{ data.national_capability }}") {
+    document.getElementById("field-national_capability").value = "{{ data.national_capability }}";
+  }
+</script>
+
+
+<!-- National Capability List -->
+<label for="field-national_capability_list">If yes</label><br>
+<input type="checkbox" id="NCL_long_term_experiments" name="national_capability_list" value="Long term experiments">
+<label for="NCL_long_term_experiments">Long term experiments</label><br>
+<input type="checkbox" id="NCL_insect_survey" name="national_capability_list" value="Insect survey">
+<label for="NCL_insect_survey">Insect survey</label><br>
+<input type="checkbox" id="NCL_farm_platform" name="national_capability_list" value="Farm platform">
+<label for="NCL_farm_platform">Farm platform</label><br><br>
+
+<!-- Patentable -->
+<label for="field-patentable">Is anything in this manuscript potentially patentable? </label><br>
+<select id="patentable" name="patentable">
+  <option value="yes">Yes</option>
+  <option value="no">No</option>
+</select>
+<br><br>
+<hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 <!-- Journal -->
 <label for="field-journal">Journal</label><br>
@@ -127,102 +248,13 @@ value=data.author_email, error=errors.author_email, classes=['control-medium']) 
   value="{{ data.placeOf_publication }}" name="placeOf_publication">
 <br><br>
 
-<!-- Existing DOI -->
-<label for="field-existing_doi">Existing DOI</label><br>
-<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
-  value="{{ data.existing_doi }}" name="existing_doi">
-<br><br>
+
 
 <!-- pubMedID -->
 <label for="field-pubMedID">PubMed ID</label><br>
 <input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
   name="pubMedID">
 <br><br>
-
-<!-- Web Address -->
-<label for="field-webAddress">Web Address</label><br>
-<input type="text" id="field-webAddress" placeholder="http://example.com" class="control-medium"
-  value="{{ data.webAddress }}" name="webAddress">
-<br><br>
-
-<!-- Related Output -->
-<label for="field-relatedOutput">Related Output</label><br>
-<input type="text" id="field-relatedOutput" placeholder="eg. Related output" class="control-medium"
-  value="{{ data.relatedOutput }}" name="relatedOutput">
-<br><br>
-
-<!-- Open Access -->
-<label for="field-openAccess">Open Access</label><br>
-<select id="access" name="access">
-  <option value="green_open_access">Published as green open access</option>
-  <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
-  <option value="non_open_access">Published as non-open access</option>
-</select>
-<br><br>
-
-<!-- Funder Code -->
-<label for="field-funder_code">Funder Code</label><br>
-<input type="text" id="field-funder_code" placeholder="eg. Funder Code" class="control-medium"
-  value="{{ data.funder_code }}" name="funder_code">
-<br><br>
-
-<!-- Funder Name -->
-<label for="field-funder_name">Funder Name</label><br>
-<input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
-  value="{{ data.funder_name }}" name="funder_name">
-<br><br>
-
-<!-- Output Status -->
-<label for="field-output_status">Output Status</label><br>
-<select id="output_status" name="output_status">
-  <option value="published">Published</option>
-  <option value="submitted">Submitted</option>
-  <option value="in_preparation">In Preparation</option>
-  <option value="in_press">In Press</option>
-  <option value="unpublished">Unpublished</option>
-</select>
-<br><br>
-
-<!-- Strategic Area -->
-<label for="field-strategic_area">Strategic Area</label><br>
-<input type="text" id="field-strategic_area" placeholder="eg. Strategic Area" class="control-medium"
-  value="{{ data.strategic_area }}" name="strategic_area">
-<br><br>
-
-<!-- Site -->
-<label for="field-site">Site</label><br>
-<input type="text" id="field-site" placeholder="eg. Site" class="control-medium" value="{{ data.site }}" name="site">
-<br><br>
-
-<!-- Additional Information -->
-<label for="field-additional_information">Additional Information</label><br>
-<textarea id="field-additional_information" placeholder="eg. Additional Information" class="control-medium"
-  style="width: 500px; height: 50px;" name="additional_information"> {{ data.additional_information }} </textarea>
-<br><br>
-
-<!-- National Capability -->
-<label for="field-national_capability">Have you used National Capability data in this research? </label><br>
-<input type="text" id="field-national_capability" placeholder="eg. National Capability" class="control-medium"
-  value="{{ data.national_capability }}" name="national_capability">
-<br><br>
-
-<!-- National Capability List -->
-<label for="field-national_capability_list">If yes</label><br>
-<input type="text" id="field-national_capability_list" placeholder="eg. National Capability List" class="control-medium"
-  value="{{ data.national_capability_list }}" name="national_capability_list">
-<br><br>
-
-<!-- Patentable -->
-<label for="field-patentable">Is anything in this manuscript potentially patentable? </label><br>
-<select id="patentable" name="patentable">
-  <option value="yes">Yes</option>
-  <option value="no">No</option>
-</select>
-<br><br>
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-
-
 <style>
   #inputField {
     display: none;
