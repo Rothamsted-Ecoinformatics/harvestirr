@@ -38,10 +38,12 @@ error=errors.author, classes=['control-medium']) }}
 
 
 <!-- Keywords -->
- 
+
 {% block package_basic_fields_tags %}
-  {% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source': '/api/2/util/tag/autocomplete?incomplete=?'} %}
-  {{ form.input('tag_string', id='field-tags', label=_('Keywords'), placeholder=_('eg. economy, mental health, government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
+{% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source':
+'/api/2/util/tag/autocomplete?incomplete=?'} %}
+{{ form.input('tag_string', id='field-tags', label=_('Keywords'), placeholder=_('eg. economy, mental health,
+government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
 {% endblock %}
 
 <!-- Contributor Name -->
@@ -58,7 +60,8 @@ error=errors.author, classes=['control-medium']) }}
 
 <!-- Publication Year -->
 <label for="field-publication_date">Publication Date</label><br>
-<input type="date" id="field-publication_date" class="control-medium" name="publication_date" value="{{ data.publication_year }}">
+<input type="date" id="field-publication_date" class="control-medium" name="publication_date"
+  value="{{ data.publication_year }}">
 <br><br>
 
 <!-- Web Address -->
@@ -168,7 +171,7 @@ error=errors.author, classes=['control-medium']) }}
 
 <!-- Publication Type -->
 <label for="field-publication_type">Publication Type</label><br>
-<select id="field-publication_type" class="control-medium" name="publication_type"> >
+<select id="field-publication_type" class="control-medium" onchange="printSelection()"> 
   <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
   <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
   <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
@@ -189,12 +192,29 @@ error=errors.author, classes=['control-medium']) }}
 </select>
 <br><br>
 <script>
+  function printSelection() {
+    const selectElement = document.getElementById('field-publication_type');
+    const selectedValue = selectElement.options[selectElement.selectedIndex].value;
+    console.log('Selected publication type:', selectedValue);
+  }
+  </script>
+  
+<script>
   if ("{{ data.publication_type }}") {
     document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
   }
 </script>
 
 <hr style="height:2px;border-width:0;color:black;background-color:gray">
+
+
+<!-- 
+#########################
+#########################
+#### Specific Fields ####
+#########################
+#########################
+-->
 
 <!-- Journal -->
 <label for="field-journal">Journal</label><br>
@@ -258,7 +278,7 @@ error=errors.author, classes=['control-medium']) }}
 
 <body>
   <h3 id="bookHeading">book</h3>
-  <div id="bookField" >
+  <div id="bookField">
     <label for="book_edition">book edition</label><br>
     <input type="text" id="book_edition" name="book_edition" value="{{ data.book_edition }}"><br><br>
     <label for="book_series">book series</label><br>
@@ -281,7 +301,7 @@ error=errors.author, classes=['control-medium']) }}
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 
-<h3 id="thesisHeading">Thesis</h3>
+  <h3 id="thesisHeading">Thesis</h3>
 
   <!-- thesis type -->
   <label for="field-thesis_type">Thesis Type</label><br>
@@ -393,7 +413,7 @@ error=errors.author, classes=['control-medium']) }}
   <br><br>
 
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
- 
+
 
 
 </body>
