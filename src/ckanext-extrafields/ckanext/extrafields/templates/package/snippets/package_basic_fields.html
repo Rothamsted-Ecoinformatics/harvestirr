@@ -17,199 +17,200 @@
 #######################
 -->
 
+<body>
+  <!-- Alternative Name -->
+  <label for="field-alternative_name">Alternative Name</label><br>
+  <input type="text" id="field-alternative_name" placeholder="eg. Alternative Name" class="control-medium"
+    value="{{ data.alternative_name }}" name="alternative_name">
+  <br><br>
+
+  <!-- Author -->
+  {% block package_metadata_author %}
+  {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
+  error=errors.author, classes=['control-medium']) }}
+  {% endblock %}
+  <!-- Abstract -->
+  <label for="field-abstract">Abstract</label><br>
+  <textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
+    style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
+  <br><br>
 
 
-<!-- Alternative Name -->
-<label for="field-alternative_name">Alternative Name</label><br>
-<input type="text" id="field-alternative_name" placeholder="eg. Alternative Name" class="control-medium"
-  value="{{ data.alternative_name }}" name="alternative_name">
-<br><br>
+  <!-- Keywords -->
 
-<!-- Author -->
-{% block package_metadata_author %}
-{{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
-error=errors.author, classes=['control-medium']) }}
-{% endblock %}
-<!-- Abstract -->
-<label for="field-abstract">Abstract</label><br>
-<textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
-  style="width: 500px; height: 50px;" name="notes"> {{ data.notes }} </textarea>
-<br><br>
+  {% block package_basic_fields_tags %}
+  {% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source':
+  '/api/2/util/tag/autocomplete?incomplete=?'} %}
+  {{ form.input('tag_string', id='field-tags', label=_('Keywords'), placeholder=_('eg. economy, mental health,
+  government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
+  {% endblock %}
 
+  <!-- Contributor Name -->
+  <label for="field-contributor_name"> Other Contributor Name</label><br>
+  <input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium"
+    value="{{ data.contributor_name }}">
+  <br><br>
 
-<!-- Keywords -->
+  <!-- Contributor Type -->
+  <label for="field-contributor_type"> Other Contributor Type</label><br>
+  <input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium"
+    value="{{ data.contributor_type }}" name="contributor_type">
+  <br><br>
 
-{% block package_basic_fields_tags %}
-{% set tag_attrs = {'data-module': 'autocomplete', 'data-module-tags': '', 'data-module-source':
-'/api/2/util/tag/autocomplete?incomplete=?'} %}
-{{ form.input('tag_string', id='field-tags', label=_('Keywords'), placeholder=_('eg. economy, mental health,
-government'), value=data.tag_string, error=errors.tags, classes=['control-full'], attrs=tag_attrs) }}
-{% endblock %}
+  <!-- Publication Year -->
+  <label for="field-publication_date">Publication Date</label><br>
+  <input type="date" id="field-publication_date" class="control-medium" name="publication_date"
+    value="{{ data.publication_year }}">
+  <br><br>
 
-<!-- Contributor Name -->
-<label for="field-contributor_name"> Other Contributor Name</label><br>
-<input type="text" id="field-contributor_name" name="contributor_name" placeholder="John Smith" class="control-medium"
-  value="{{ data.contributor_name }}">
-<br><br>
+  <!-- Web Address -->
+  <label for="field-webAddress">Web Address</label><br>
+  <input type="text" id="field-webAddress" placeholder="http://example.com" class="control-medium"
+    value="{{ data.webAddress }}" name="webAddress">
+  <br><br>
 
-<!-- Contributor Type -->
-<label for="field-contributor_type"> Other Contributor Type</label><br>
-<input type="text" id="field-contributor_type" placeholder="Author, Maintainer .." class="control-medium"
-  value="{{ data.contributor_type }}" name="contributor_type">
-<br><br>
+  <!-- Existing DOI -->
+  <label for="field-existing_doi">Existing DOI</label><br>
+  <input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
+    value="{{ data.existing_doi }}" name="existing_doi">
+  <br><br>
 
-<!-- Publication Year -->
-<label for="field-publication_date">Publication Date</label><br>
-<input type="date" id="field-publication_date" class="control-medium" name="publication_date"
-  value="{{ data.publication_year }}">
-<br><br>
+  <!-- Related Output -->
+  <label for="field-relatedOutput">Related Output</label><br>
+  <input type="text" id="field-relatedOutput" placeholder="eg. Related output" class="control-medium"
+    value="{{ data.relatedOutput }}" name="relatedOutput">
+  <br><br>
 
-<!-- Web Address -->
-<label for="field-webAddress">Web Address</label><br>
-<input type="text" id="field-webAddress" placeholder="http://example.com" class="control-medium"
-  value="{{ data.webAddress }}" name="webAddress">
-<br><br>
+  <!-- Open Access -->
+  <label for="field-openAccess">Open Access</label><br>
+  <select id="access" name="access">
+    <option value="green_open_access">Published as green open access</option>
+    <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
+    <option value="non_open_access">Published as non-open access</option>
+  </select>
+  <br><br>
 
-<!-- Existing DOI -->
-<label for="field-existing_doi">Existing DOI</label><br>
-<input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
-  value="{{ data.existing_doi }}" name="existing_doi">
-<br><br>
+  <!-- Funder Code -->
+  <label for="field-funder_code">Funder Code</label><br>
+  <input type="text" id="field-funder_code" placeholder="eg. Funder Code" class="control-medium"
+    value="{{ data.funder_code }}" name="funder_code">
+  <br><br>
 
-<!-- Related Output -->
-<label for="field-relatedOutput">Related Output</label><br>
-<input type="text" id="field-relatedOutput" placeholder="eg. Related output" class="control-medium"
-  value="{{ data.relatedOutput }}" name="relatedOutput">
-<br><br>
+  <!-- Funder Name -->
+  <label for="field-funder_name">Funder Name</label><br>
+  <input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
+    value="{{ data.funder_name }}" name="funder_name">
+  <br><br>
 
-<!-- Open Access -->
-<label for="field-openAccess">Open Access</label><br>
-<select id="access" name="access">
-  <option value="green_open_access">Published as green open access</option>
-  <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
-  <option value="non_open_access">Published as non-open access</option>
-</select>
-<br><br>
+  <!-- Embargo Period -->
+  <label for="field-embargo_period">Embargo Period</label><br>
+  <input type="text" id="field-embargo_period" placeholder="eg. Embargo Period" class="control-medium"
+    value="{{ data.embargo_period }}" name="embargo_period">
+  <br><br>
 
-<!-- Funder Code -->
-<label for="field-funder_code">Funder Code</label><br>
-<input type="text" id="field-funder_code" placeholder="eg. Funder Code" class="control-medium"
-  value="{{ data.funder_code }}" name="funder_code">
-<br><br>
+  <!-- Output Status -->
+  <label for="field-output_status">Output Status</label><br>
+  <select id="output_status" name="output_status">
+    <option value="published">Published</option>
+    <option value="submitted">Submitted</option>
+    <option value="in_preparation">In Preparation</option>
+    <option value="in_press">In Press</option>
+    <option value="unpublished">Unpublished</option>
+  </select>
+  <br><br>
 
-<!-- Funder Name -->
-<label for="field-funder_name">Funder Name</label><br>
-<input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
-  value="{{ data.funder_name }}" name="funder_name">
-<br><br>
+  <!-- Strategic Area -->
+  <label for="field-strategic_area">Strategic Area</label><br>
+  <input type="text" id="field-strategic_area" placeholder="eg. Strategic Area" class="control-medium"
+    value="{{ data.strategic_area }}" name="strategic_area">
+  <br><br>
 
-<!-- Embargo Period -->
-<label for="field-embargo_period">Embargo Period</label><br>
-<input type="text" id="field-embargo_period" placeholder="eg. Embargo Period" class="control-medium"
-  value="{{ data.embargo_period }}" name="embargo_period">
-<br><br>
+  <!-- Site -->
+  <label for="field-site">Site</label><br>
+  <input type="text" id="field-site" placeholder="eg. Site" class="control-medium" value="{{ data.site }}" name="site">
+  <br><br>
 
-<!-- Output Status -->
-<label for="field-output_status">Output Status</label><br>
-<select id="output_status" name="output_status">
-  <option value="published">Published</option>
-  <option value="submitted">Submitted</option>
-  <option value="in_preparation">In Preparation</option>
-  <option value="in_press">In Press</option>
-  <option value="unpublished">Unpublished</option>
-</select>
-<br><br>
+  <!-- Additional Information -->
+  <label for="field-additional_information">Additional Information</label><br>
+  <textarea id="field-additional_information" placeholder="eg. Additional Information" class="control-medium"
+    style="width: 500px; height: 50px;" name="additional_information"> {{ data.additional_information }} </textarea>
+  <br><br>
 
-<!-- Strategic Area -->
-<label for="field-strategic_area">Strategic Area</label><br>
-<input type="text" id="field-strategic_area" placeholder="eg. Strategic Area" class="control-medium"
-  value="{{ data.strategic_area }}" name="strategic_area">
-<br><br>
-
-<!-- Site -->
-<label for="field-site">Site</label><br>
-<input type="text" id="field-site" placeholder="eg. Site" class="control-medium" value="{{ data.site }}" name="site">
-<br><br>
-
-<!-- Additional Information -->
-<label for="field-additional_information">Additional Information</label><br>
-<textarea id="field-additional_information" placeholder="eg. Additional Information" class="control-medium"
-  style="width: 500px; height: 50px;" name="additional_information"> {{ data.additional_information }} </textarea>
-<br><br>
-
-<!-- National Capability -->
-<label for="field-national_capability">National Capability</label><br>
-<select id="field-national_capability" class="control-medium" name="national_capability">
-  <option value="">Select an option</option>
-  <option value="yes">Yes</option>
-  <option value="no">No</option>
-</select>
-<br><br>
-<script>
-  if ("{{ data.national_capability }}") {
-    document.getElementById("field-national_capability").value = "{{ data.national_capability }}";
-  }
-</script>
-
-
-<!-- National Capability List -->
-<label for="field-national_capability_list">If yes</label><br>
-<input type="checkbox" id="NCL_long_term_experiments" name="national_capability_list" value="Long term experiments">
-<label for="NCL_long_term_experiments">Long term experiments</label><br>
-<input type="checkbox" id="NCL_insect_survey" name="national_capability_list" value="Insect survey">
-<label for="NCL_insect_survey">Insect survey</label><br>
-<input type="checkbox" id="NCL_farm_platform" name="national_capability_list" value="Farm platform">
-<label for="NCL_farm_platform">Farm platform</label><br><br>
-
-<!-- Patentable -->
-<label for="field-patentable">Is anything in this manuscript potentially patentable? </label><br>
-<select id="patentable" name="patentable">
-  <option value="yes">Yes</option>
-  <option value="no">No</option>
-</select>
-<br><br>
-
-<!-- Publication Type -->
-<label for="field-publication_type">Publication Type</label><br>
-<select id="field-publication_type" class="control-medium" onchange="printSelection()"> 
-  <option value="">Select an option</option>
-  <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
-  <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
-  <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
-    societies</option>
-  <option value="Report">Report</option>
-  <option value="Preprint article">Preprint article</option>
-  <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member,
-    alone/with others</option>
-  <option value="Theses">Theses</option>
-  <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and other
-    technical publications</option>
-  <option value="Patents">Patents</option>
-  <option value="Computer programs">Computer programs</option>
-  <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database</option>
-  <option value="Plant variety">Plant variety</option>
-  <option value="Agricultural models">Agricultural models</option>
-  <option value="Datasets">Datasets</option>
-</select>
-<br><br>
-<script>
-  function printSelection() {
-    const selectElement = document.getElementById('field-publication_type');
-    const selectedValue = selectElement.options[selectElement.selectedIndex].value;
-    console.log('Selected publication type:', selectedValue);
-  }
+  <!-- National Capability -->
+  <label for="field-national_capability">National Capability</label><br>
+  <select id="field-national_capability" class="control-medium" name="national_capability">
+    <option value="">Select an option</option>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  <br><br>
+  <script>
+    if ("{{ data.national_capability }}") {
+      document.getElementById("field-national_capability").value = "{{ data.national_capability }}";
+    }
   </script>
-  
-<script>
-  if ("{{ data.publication_type }}") {
-    document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
-  }
-</script>
-
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 
-<!-- 
+  <!-- National Capability List -->
+  <label for="field-national_capability_list">If yes</label><br>
+  <input type="checkbox" id="NCL_long_term_experiments" name="national_capability_list" value="Long term experiments">
+  <label for="NCL_long_term_experiments">Long term experiments</label><br>
+  <input type="checkbox" id="NCL_insect_survey" name="national_capability_list" value="Insect survey">
+  <label for="NCL_insect_survey">Insect survey</label><br>
+  <input type="checkbox" id="NCL_farm_platform" name="national_capability_list" value="Farm platform">
+  <label for="NCL_farm_platform">Farm platform</label><br><br>
+
+  <!-- Patentable -->
+  <label for="field-patentable">Is anything in this manuscript potentially patentable? </label><br>
+  <select id="patentable" name="patentable">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  <br><br>
+
+  <!-- Publication Type -->
+  <label for="field-publication_type">Publication Type</label><br>
+  <select id="field-publication_type" class="control-medium" onchange="printSelection()">
+    <option value="">Select an option</option>
+    <option value="Papers appearing in refereed journals">Papers appearing in refereed journals</option>
+    <option value="Book chapters etc. edited externally">Book chapters etc. edited externally</option>
+    <option value="Edited contributions to conferences/learned societies">Edited contributions to conferences/learned
+      societies</option>
+    <option value="Report">Report</option>
+    <option value="Preprint article">Preprint article</option>
+    <option value="Books edited/written by staff member, alone/with others">Books edited/written by staff member,
+      alone/with others</option>
+    <option value="Theses">Theses</option>
+    <option value="Articles in popular magazines and other technical publications">Articles in popular magazines and
+      other
+      technical publications</option>
+    <option value="Patents">Patents</option>
+    <option value="Computer programs">Computer programs</option>
+    <option value="Protein or DNA sequences submitted to database">Protein or DNA sequences submitted to database
+    </option>
+    <option value="Plant variety">Plant variety</option>
+    <option value="Agricultural models">Agricultural models</option>
+    <option value="Datasets">Datasets</option>
+  </select>
+  <br><br>
+  <script>
+    function printSelection() {
+      const selectElement = document.getElementById('field-publication_type');
+      const selectedValue = selectElement.options[selectElement.selectedIndex].value;
+      console.log('Selected publication type:', selectedValue);
+    }
+  </script>
+
+  <script>
+    if ("{{ data.publication_type }}") {
+      document.getElementById("field-publication_type").value = "{{ data.publication_type }}";
+    }
+  </script>
+
+  <hr style="height:2px;border-width:0;color:black;background-color:gray">
+
+
+  <!-- 
 #########################
 #########################
 #### Specific Fields ####
@@ -217,88 +218,104 @@ government'), value=data.tag_string, error=errors.tags, classes=['control-full']
 #########################
 -->
 
-<!-- Journal -->
-<label for="field-journal">Journal</label><br>
-<input type="text" id="field-journal" placeholder="Journal of Example" class="control-medium" value="{{ data.journal }}"
-  name="journal">
-<br><br>
+  <!-- Journal -->
 
-<!-- Publisher -->
-<label for="field-publisher">Publisher</label><br>
-<input type="text" id="field-publisher" placeholder="Publisher Name" class="control-medium" value="{{ data.publisher }}"
-  name="publisher">
-<br><br>
+  <div id="journal_div" style="display: block;">
+    <label for="field-journal">Journal</label><br>
+    <input type="text" id="field-journal" placeholder="Journal of Example" class="control-medium"
+      value="{{ data.journal }}" name="journal">
+    <br><br>
+  </div>
 
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
-<label><strong>Journal citation</strong></label><br>
+  <!-- Publisher -->
+  <div id="publisher_div" style="display: block;">
+    <label for="field-publisher">Publisher</label><br>
+    <input type="text" id="field-publisher" placeholder="Publisher Name" class="control-medium"
+      value="{{ data.publisher }}" name="publisher">
+    <br><br>
+  </div>
+
+  <div id="journal_volume_div" style="display: block;">
+    <!-- Journal Volume -->
+    <label for="field-journal_volume">Journal Volume</label><br>
+    <input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium"
+      value="{{ data.journal_volume }}" name="journal_volume">
+    <br><br>
+  </div>
+
+  <div id="journal_issue_div" style="display: block;">
+    <!-- Journal Issue -->
+    <label for="field-journal_issue">Journal Issue</label><br>
+    <input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium"
+      value="{{ data.journal_issue }}" name="journal_issue">
+    <br><br>
+  </div>
+
+  <div id="journal_page_range_div" style="display: block;">
+    <!-- Journal Page Range -->
+    <label for="field-journal_page_range">Journal Page Range</label><br>
+    <input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium"
+      value="{{ data.journal_page_range }}" name="journal_page_range">
+    <br><br>
+  </div>
+
+  <div id="isbn_div" style="display: block;">
+    <!-- ISBN -->
+    <label for="field-isbn">ISBN</label><br>
+    <input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}"
+      name="isbn">
+    <br><br>
+  </div>
+
+  <div id="issn_div" style="display: block;">
+    <!-- ISSN -->
+    <label for="field-issn">ISSN</label><br>
+    <input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}"
+      name="issn">
+    <br><br>
+  </div>
+
+  <div id="placeOf_publication_div" style="display: block;">
+    <!-- Place of Publication -->
+    <label for="field-placeOf_publication">Place of Publication</label><br>
+    <input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium"
+      value="{{ data.placeOf_publication }}" name="placeOf_publication">
+    <br><br>
+  </div>
+
+  <div id="pubMedID_div" style="display: block;">
+    <!-- pubMedID -->
+    <label for="field-pubMedID">PubMed ID</label><br>
+    <input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
+      name="pubMedID">
+    <br><br>
+  </div>
 
 
-
-<!-- Journal Volume -->
-<label for="field-journal_volume">Journal Volume</label><br>
-<input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium"
-  value="{{ data.journal_volume }}" name="journal_volume">
-<br><br>
-<!-- Journal Issue -->
-<label for="field-journal_issue">Journal Issue</label><br>
-<input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium"
-  value="{{ data.journal_issue }}" name="journal_issue">
-<br><br>
-<!-- Journal Page Range -->
-<label for="field-journal_page_range">Journal Page Range</label><br>
-<input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium"
-  value="{{ data.journal_page_range }}" name="journal_page_range">
-<br><br>
-<hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-<!-- ISBN -->
-<label for="field-isbn">ISBN</label><br>
-<input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}"
-  name="isbn">
-<br><br>
-<!-- ISSN -->
-
-<label for="field-issn">ISSN</label><br>
-<input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}" name="issn">
-<br><br>
-
-<!-- Place of Publication -->
-<label for="field-placeOf_publication">Place of Publication</label><br>
-<input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium"
-  value="{{ data.placeOf_publication }}" name="placeOf_publication">
-<br><br>
-
-
-
-<!-- pubMedID -->
-<label for="field-pubMedID">PubMed ID</label><br>
-<input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
-  name="pubMedID">
-<br><br>
-
-
-<body>
-  <h3 id="bookHeading">book</h3>
-  <div id="bookField">
+  <div id="book_edition_div" style="display: block;">
+    <!-- book edition -->
     <label for="book_edition">book edition</label><br>
     <input type="text" id="book_edition" name="book_edition" value="{{ data.book_edition }}"><br><br>
+  </div>
+  <div id="book_series_div" style="display: block;">
+    <!-- book series -->
     <label for="book_series">book series</label><br>
     <input type="text" id="book_series" name="book_series" value="{{ data.book_series }}"><br><br>
   </div>
-  <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
-
-  <h3 id="conferenceHeading">conference</h3>
-  <div id="conferenceField">
+ <!-- ##############
+  ##################
+  ################# -->
     <label for="conference_type">conference type</label><br>
     <input type="text" id="conference_type" name="conference_type" value="{{ data.conference_type }}"><br><br>
+
     <label for="conference_location">conference location</label><br>
     <input type="text" id="conference_location" name="conference_location"
       value="{{ data.conference_location }}"><br><br>
+
     <label for="conference_date">conference date</label><br>
     <input type="date" id="conference_date" name="conference_date" value="{{ data.conference_date }}"><br><br>
 
-  </div>
   <hr style="height:2px;border-width:0;color:black;background-color:gray">
 
 
