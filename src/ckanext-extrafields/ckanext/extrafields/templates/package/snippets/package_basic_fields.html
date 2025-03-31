@@ -220,7 +220,7 @@
 
   <!-- Journal -->
 
-  <div id="journal_div" style="display: block;">
+  <div id="journal_div" style="display: none;">
     <label for="field-journal">Journal</label><br>
     <input type="text" id="field-journal" placeholder="Journal of Example" class="control-medium"
       value="{{ data.journal }}" name="journal">
@@ -228,14 +228,14 @@
   </div>
 
   <!-- Publisher -->
-  <div id="publisher_div" style="display: block;">
+  <div id="publisher_div" style="display: none;">
     <label for="field-publisher">Publisher</label><br>
     <input type="text" id="field-publisher" placeholder="Publisher Name" class="control-medium"
       value="{{ data.publisher }}" name="publisher">
     <br><br>
   </div>
 
-  <div id="journal_volume_div" style="display: block;">
+  <div id="journal_volume_div" style="display: none;">
     <!-- Journal Volume -->
     <label for="field-journal_volume">Journal Volume</label><br>
     <input type="text" id="field-journal_volume" placeholder="Volume 1" class="control-medium"
@@ -243,7 +243,7 @@
     <br><br>
   </div>
 
-  <div id="journal_issue_div" style="display: block;">
+  <div id="journal_issue_div" style="display: none;">
     <!-- Journal Issue -->
     <label for="field-journal_issue">Journal Issue</label><br>
     <input type="text" id="field-journal_issue" placeholder="Issue 1" class="control-medium"
@@ -251,7 +251,7 @@
     <br><br>
   </div>
 
-  <div id="journal_page_range_div" style="display: block;">
+  <div id="journal_page_range_div" style="display: none;">
     <!-- Journal Page Range -->
     <label for="field-journal_page_range">Journal Page Range</label><br>
     <input type="text" id="field-journal_page_range" placeholder="1-10" class="control-medium"
@@ -259,7 +259,7 @@
     <br><br>
   </div>
 
-  <div id="isbn_div" style="display: block;">
+  <div id="isbn_div" style="display: none;">
     <!-- ISBN -->
     <label for="field-isbn">ISBN</label><br>
     <input type="text" id="field-isbn" placeholder="978-3-16-148410-0" class="control-medium" value="{{ data.isbn }}"
@@ -267,7 +267,7 @@
     <br><br>
   </div>
 
-  <div id="issn_div" style="display: block;">
+  <div id="issn_div" style="display: none;">
     <!-- ISSN -->
     <label for="field-issn">ISSN</label><br>
     <input type="text" id="field-issn" placeholder="1234-5678" class="control-medium" value="{{ data.issn }}"
@@ -275,7 +275,7 @@
     <br><br>
   </div>
 
-  <div id="placeOf_publication_div" style="display: block;">
+  <div id="placeOf_publication_div" style="display: none;">
     <!-- Place of Publication -->
     <label for="field-placeOf_publication">Place of Publication</label><br>
     <input type="text" id="field-placeOf_publication" placeholder="New York" class="control-medium"
@@ -283,7 +283,7 @@
     <br><br>
   </div>
 
-  <div id="pubMedID_div" style="display: block;">
+  <div id="pubMedID_div" style="display: none;">
     <!-- pubMedID -->
     <label for="field-pubMedID">PubMed ID</label><br>
     <input type="text" id="field-pubMedID" placeholder="12345678" class="control-medium" value="{{ data.pubMedID }}"
@@ -292,35 +292,34 @@
   </div>
 
 
-  <div id="book_edition_div" style="display: block;">
+  <div id="book_edition_div" style="display: none;">
     <!-- book edition -->
     <label for="book_edition">book edition</label><br>
     <input type="text" id="book_edition" name="book_edition" value="{{ data.book_edition }}"><br><br>
   </div>
-  <div id="book_series_div" style="display: block;">
+  <div id="book_series_div" style="display: none;">
     <!-- book series -->
     <label for="book_series">book series</label><br>
     <input type="text" id="book_series" name="book_series" value="{{ data.book_series }}"><br><br>
   </div>
-
- <!-- ##############
-  ##################
-  ################# -->
+   
+  <div id="conference_type_div" style="display: none;">  
     <label for="conference_type">conference type</label><br>
     <input type="text" id="conference_type" name="conference_type" value="{{ data.conference_type }}"><br><br>
-
-    <label for="conference_location">conference location</label><br>
+  </div> 
+  <div id="conference_location_div" style="display: none;">
+    <!-- conference location -->  
+  <label for="conference_location">conference location</label><br>
     <input type="text" id="conference_location" name="conference_location"
       value="{{ data.conference_location }}"><br><br>
-
+  </div>
+  <div id="conference_date_div" style="display: none;">
+    <!-- conference date -->
     <label for="conference_date">conference date</label><br>
     <input type="date" id="conference_date" name="conference_date" value="{{ data.conference_date }}"><br><br>
-
-  <hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-
-  <h3 id="thesisHeading">Thesis</h3>
-
+  </div>
+  
+  <div id="thesis_type_div" style="display: none;">
   <!-- thesis type -->
   <label for="field-thesis_type">Thesis Type</label><br>
   <select id="field-thesis_type" class="control-medium" name="thesis_type">
@@ -330,22 +329,22 @@
     <option value="Prof Doc Thesis">Prof Doc Thesis</option>
   </select>
   <br><br>
+  </div>
   <script>
     if ("{{ data.thesis_type }}") {
       document.getElementById("field-thesis_type").value = "{{ data.thesis_type }}";
     }
   </script>
 
+  <div id="thesis_qualification_name_div" style="display: none;">
   <!-- thesis qualification name -->
   <label for="field-thesis_qualification_name">Thesis Qualification Name</label><br>
   <input type="text" id="field-thesis_qualification_name" placeholder="eg. Thesis Qualification Name"
     class="control-medium" value="{{ data.thesis_qualification_name }}" name="thesis_qualification_name">
   <br><br>
+  </div>
 
-  <hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-  <h3 id="patentHeading">Patent</h3>
-
+  <div id="patent_type_div" style="display: none;">
   <!-- Patent Type -->
   <label for="field-patent_type">Patent Type</label><br>
   <select id="field-patent_type" class="control-medium" name="patent_type">
@@ -354,6 +353,7 @@
     <option value="N/A">N/A</option>
   </select>
   <br><br>
+  </div>
   <script>
     if ("{{ data.patent_type }}") {
       document.getElementById("field-patent_type").value = "{{ data.patent_type }}";
@@ -361,78 +361,91 @@
   </script>
 
   <!-- Patent Applicant -->
+  <div id="patent_applicant_div" style="display: none;">
   <label for="field-patent_applicant">Patent Applicant</label><br>
   <input type="text" id="field-patent_applicant" placeholder="eg. Patent Applicant" class="control-medium"
     value="{{ data.patent_applicant }}" name="patent_applicant">
   <br><br>
+</div>  
 
+  <div id="patent_id_div" style="display: none;">
   <!-- Patent ID -->
   <label for="field-patent_id">Patent ID</label><br>
   <input type="text" id="field-patent_id" placeholder="eg. Patent ID" class="control-medium"
     value="{{ data.patent_id }}" name="patent_id">
   <br><br>
-  <hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-  <!-- Dataset -->
-  <h3 id="datasetHeading">Dataset</h3>
-
+  </div>
+  
+  <div id="dataset_version_div" style="display: none;">
   <!-- Dataset Version -->
   <label for="field-dataset_version">Dataset Version</label><br>
   <input type="text" id="field-dataset_version" placeholder="eg. Dataset Version" class="control-medium"
     value="{{ data.dataset_version }}" name="dataset_version">
   <br><br>
-
+  </div>
+  <div id="dataset_data_type_div" style="display: none;">
   <!-- Dataset Data Type -->
   <label for="field-dataset_data_type">Dataset Data Type</label><br>
   <input type="text" id="field-dataset_data_type" placeholder="eg. Dataset Data Type" class="control-medium"
     value="{{ data.dataset_data_type }}" name="dataset_data_type">
   <br><br>
+  </div>
 
+  <div id="dataset_content_div" style="display: none;">
   <!-- Dataset Content -->
   <label for="field-dataset_content">Dataset Content</label><br>
   <input type="text" id="field-dataset_content" placeholder="eg. Dataset Content" class="control-medium"
     value="{{ data.dataset_content }}" name="dataset_content">
   <br><br>
-
+  </div>
+  
+  <div id="dataset_collection_start_div" style="display: none;">
   <!-- Dataset Collection Start -->
   <label for="field-dataset_collection_start">Dataset Collection Start</label><br>
   <input type="date" id="field-dataset_collection_start" placeholder="eg. Dataset Collection Start"
     class="control-medium" value="{{ data.dataset_collection_start }}" name="dataset_collection_start">
   <br><br>
+  </div>
 
+  <div id="dataset_collection_end_div" style="display: none;">
   <!-- Dataset Collection End -->
   <label for="field-dataset_collection_end">Dataset Collection End</label><br>
   <input type="date" id="field-dataset_collection_end" placeholder="eg. Dataset Collection End" class="control-medium"
     value="{{ data.dataset_collection_end }}" name="dataset_collection_end">
   <br><br>
+  </div>
 
+  <div id="dataset_collection_method_div" style="display: none;">    
   <!-- Dataset Collection Method -->
   <label for="field-dataset_collection_method">Dataset Collection Method</label><br>
   <input type="text" id="field-dataset_collection_method" placeholder="eg. Dataset Collection Method"
     class="control-medium" value="{{ data.dataset_collection_method }}" name="dataset_collection_method">
   <br><br>
+  </div>
 
+  <div id="dataset_data_prep_method_div" style="display: none;">
   <!-- Dataset Data Prep Method -->
   <label for="field-dataset_data_prep_method">Data preparation and processing activities</label><br>
   <input type="text" id="field-dataset_data_prep_method" placeholder="eg. Data preparation and processing activities"
     class="control-medium" value="{{ data.dataset_data_prep_method }}" name="dataset_data_prep_method">
   <br><br>
+  </div>
 
+  <div id="dataset_data_retention_date_div" style="display: none;">
   <!-- Dataset Data Retention Date -->
   <label for="field-dataset_data_retention_date">Dataset Data Retention Date</label><br>
   <input type="date" id="field-dataset_data_retention_date" placeholder="eg. Dataset Data Retention Date"
     class="control-medium" value="{{ data.dataset_data_retention_date }}" name="dataset_data_retention_date">
   <br><br>
-
+  </div>
+  <div id="dataset_retention_action_div" style="display: none;">
   <!-- Dataset Retention Action -->
   <label for="field-dataset_retention_action">Dataset Retention Action</label><br>
   <input type="text" id="field-dataset_retention_action" placeholder="eg. Dataset Retention Action"
     class="control-medium" value="{{ data.dataset_retention_action }}" name="dataset_retention_action">
   <br><br>
-
-  <hr style="height:2px;border-width:0;color:black;background-color:gray">
-
-
+  </div>
+  
 
 </body>
 {% endblock %}
