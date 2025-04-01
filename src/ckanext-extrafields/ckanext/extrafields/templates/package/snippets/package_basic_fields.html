@@ -451,6 +451,11 @@
         hide_optional_fields();
         show_referred_journal_fields();
       }
+      else if (selectedValue == "Book chapters etc. edited externally")
+      {
+        hide_optional_fields();
+        show_book_chapter_fields();
+      }
     }
     function hide_optional_fields() {
       document.getElementById("journal_div").style.display = "none";
@@ -491,6 +496,13 @@
       document.getElementById("journal_volume_div").style.display = "block";
       document.getElementById("journal_issue_div").style.display = "block";
       document.getElementById("journal_page_range_div").style.display = "block";
+      document.getElementById("isbn_div").style.display = "block";
+      document.getElementById("issn_div").style.display = "block";
+    }
+
+    function show_book_chapter_fields() {
+      document.getElementById("book_edition_div").style.display = "block";
+      document.getElementById("book_series_div").style.display = "block";
       document.getElementById("isbn_div").style.display = "block";
       document.getElementById("issn_div").style.display = "block";
     }
