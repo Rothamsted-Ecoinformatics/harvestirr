@@ -197,8 +197,21 @@
     function printSelection() {
       const selectElement = document.getElementById('field-publication_type');
       const selectedValue = selectElement.options[selectElement.selectedIndex].value;
-      console.log('Selected publication type:', selectedValue);
+      //console.log('Selected publication type:', selectedValue);
+      if(selectedValue == ""){
+        console.log("no type");
+      }
+      else if(selectedValue == "Papers appearing in refereed journals")
+      {
+        document.getElementById("journal_div").style.display = "block";
+        document.getElementById("publisher_div").style.display = "block";
+        document.getElementById("journal_volume_div").style.display = "block";
+        document.getElementById("journal_issue_div").style.display = "block";
+        document.getElementById("journal_page_range_div").style.display = "block";
+        document.getElementById("isbn_div").style.display = "none";
+        document.getElementById("issn_div").style.display = "block";
     }
+  }
   </script>
 
   <script>
