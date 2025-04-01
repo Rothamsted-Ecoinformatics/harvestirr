@@ -460,6 +460,16 @@
         hide_optional_fields();
         show_conference_fields();
       }
+      else if (selectedValue == "Report"){
+        hide_optional_fields();
+      }
+      else if (selectedValue == "Preprint article"){
+        hide_optional_fields();
+      }
+      else if (selectedValue == "Books edited/written by staff member, alone/with others"){
+        hide_optional_fields();
+        show_book_chapter_fields();
+      }
     }
     function hide_optional_fields() {
       document.getElementById("journal_div").style.display = "none";
@@ -515,6 +525,13 @@
       document.getElementById("conference_type_div").style.display = "block";
       document.getElementById("conference_location_div").style.display = "block";
       document.getElementById("conference_date_div").style.display = "block";
+    }
+    function show_book_chapter_fields() {
+      document.getElementById("book_edition_div").style.display = "block";
+      document.getElementById("book_series_div").style.display = "block";
+      document.getElementById("isbn_div").style.display = "block";
+      document.getElementById("issn_div").style.display = "block";
+      document.getElementById("placeOf_publication_div").style.display = "block";
     }
 
   
