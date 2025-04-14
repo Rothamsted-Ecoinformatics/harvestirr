@@ -445,55 +445,72 @@
       //console.log('Selected publication type:', selectedValue);
       if (selectedValue == "") {
         hide_optional_fields();
+        clear_fields();
         console.log("no type");
       }
       else if (selectedValue == "Papers appearing in refereed journals") {
         hide_optional_fields();
+        clear_fields();
         show_referred_journal_fields();
       }
       else if (selectedValue == "Book chapters etc. edited externally")
       {
         hide_optional_fields();
+        clear_fields();
         show_book_chapter_fields();
       }
       else if (selectedValue == "Edited contributions to conferences/learned societies"){
         hide_optional_fields();
+        clear_fields();
         show_conference_fields();
       }
       else if (selectedValue == "Report"){
+        clear_fields();
         hide_optional_fields();
       }
       else if (selectedValue == "Preprint article"){
+        clear_fields();  
         hide_optional_fields();
       }
       else if (selectedValue == "Books edited/written by staff member, alone/with others"){
         hide_optional_fields();
+        clear_fields();
         show_book_edited_fields();
       }
       else if (selectedValue == "Theses"){
         hide_optional_fields();
+        clear_fields();
         show_thesis_fields();
       }
       else  if (selectedValue == "Articles in popular magazines and other technical publications"){
         hide_optional_fields();
+        clear_fields();
       }
       else if (selectedValue =="Patents"){
         hide_optional_fields();
+        clear_fields();
         show_patents_fields();
       }
       else if (selectedValue == "Protein or DNA sequences submitted to database"){
+        clear_fields();
         hide_optional_fields();
       }
       else if (selectedValue == "Plant variety"){
+        clear_fields();
         hide_optional_fields();
       }
       else if (selectedValue == "Agricultural models"){
+        clear_fields();
         hide_optional_fields();
       }
       else if (selectedValue == "Datasets"){
+        clear_fields();
         hide_optional_fields();
         show_dataset_fields();
       }
+    }
+    function clear_fields(){
+      conmsole.log("clearing fields");
     }
     function hide_optional_fields() {
       document.getElementById("journal_div").style.display = "none";
