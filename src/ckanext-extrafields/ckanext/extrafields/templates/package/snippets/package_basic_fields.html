@@ -84,11 +84,17 @@
   <!-- Open Access -->
   <label for="field-openAccess">Open Access</label><br>
   <select id="openAccess" name="openAccess">
+    <option value="">Select an option</option>
     <option value="green_open_access">Published as green open access</option>
     <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
     <option value="non_open_access">Published as non-open access</option>
   </select>
   <br><br>
+  <script>
+    if ("{{ data.openAccess }}") {
+      document.getElementById("openAccess").value = "{{ data.openAccess }}";
+    }
+    </script>
 
   <!-- Funder Code -->
   <label for="field-funder_code">Funder Code</label><br>
@@ -111,6 +117,7 @@
   <!-- Output Status -->
   <label for="field-output_status">Output Status</label><br>
   <select id="output_status" name="output_status">
+    <option value="">Select an option</option>
     <option value="published">Published</option>
     <option value="submitted">Submitted</option>
     <option value="in_preparation">In Preparation</option>
@@ -118,6 +125,11 @@
     <option value="unpublished">Unpublished</option>
   </select>
   <br><br>
+  <script>
+    if ("{{ data.output_status }}") {
+      document.getElementById("output_status").value = "{{ data.output_status }}";
+    }
+    </script>
 
   <!-- Strategic Area -->
   <label for="field-strategic_area">Strategic Area</label><br>
