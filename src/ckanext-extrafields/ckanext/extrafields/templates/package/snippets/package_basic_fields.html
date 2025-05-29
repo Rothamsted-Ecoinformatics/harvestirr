@@ -315,6 +315,7 @@
     <!-- thesis type -->
     <label for="field-thesis_type">Thesis Type</label><br>
     <select id="field-thesis_type" class="control-medium" name="thesis_type">
+      <option value="">Select an option</option>
       <option value="MPhil Thesis">MPhil Thesis</option>
       <option value="Masters Thesis">Masters Thesis</option>
       <option value="PhD Thesis">PhD Thesis</option>
@@ -340,6 +341,7 @@
     <!-- Patent Type -->
     <label for="field-patent_type">Patent Type</label><br>
     <select id="field-patent_type" class="control-medium" name="patent_type">
+      <option value="">Select an option</option>
       <option value="granted">Patent Granted</option>
       <option value="applied">Patent Applied for</option>
       <option value="N/A">N/A</option>
@@ -635,11 +637,17 @@
     console.log("data.publication_type: ", "{{data.publication_type}}");
     printSelectionWithData();
   }
+  if ("{{data.openAccess}}") {
+    console.log("data.openAccess: ", "{{data.openAccess}}");
+    printOpenAccessWithData("{{data.openAccess}}");
+  }
   function printSelectionWithData() {
       const selectElement = document.getElementById('field-publication_type');
-      const selectedValue = selectElement.options[selectElement.selectedIndex].value;
+      const selectedValue = "{{ data.publication_type }}";
+      selectElement.value = selectedValue;
       //console.log('Selected publication type:', selectedValue);
       if (selectedValue == "") {
+        
         hide_optional_fields();
         // clear_fields();
         console.log("no type");
@@ -705,6 +713,11 @@
         show_dataset_fields();
       }
     }
+  function printOpenAccessWithData(openAccess) {
+      const openAccessElement = document.getElementById('openAccess');  
+      console.log('Open Access value:', openAccess);
+    }
+
 </script>
 </body>
 {% endblock %}
