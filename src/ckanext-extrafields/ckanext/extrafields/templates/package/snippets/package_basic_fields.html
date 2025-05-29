@@ -645,6 +645,7 @@
       const selectElement = document.getElementById('field-publication_type');
       const selectedValue = "{{ data.publication_type }}";
       selectElement.value = selectedValue;
+      console.log('Selected publication type with data:', selectedValue);
       //console.log('Selected publication type:', selectedValue);
       if (selectedValue == "") {
         
