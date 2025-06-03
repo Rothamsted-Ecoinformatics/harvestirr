@@ -6,6 +6,10 @@ setup(
     # have to change the message extractors, you can read more about babel
     # message extraction at
     # http://babel.pocoo.org/docs/messages/#extraction-method-mapping-and-configuration
+    entry_points='''
+    [ckan.plugins]
+    example_theme=ckanext.theme.plugin:ThemePlugin
+    ''',
     message_extractors={
         'ckanext': [
             ('**.py', 'python', None),
