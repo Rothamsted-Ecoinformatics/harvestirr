@@ -1,5 +1,5 @@
 from ckan.common import CKANConfig
-from pylons import config
+#from pylons import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
