@@ -8,7 +8,7 @@ setup(
     # http://babel.pocoo.org/docs/messages/#extraction-method-mapping-and-configuration
     entry_points='''
     [ckan.plugins]
-    example_theme=ckanext.theme.plugin:ThemePlugin
+    theme=ckanext.theme.plugin:ThemePlugin
     ''',
     message_extractors={
         'ckanext': [
