@@ -19,7 +19,7 @@ class ThemePlugin(plugins.SingletonPlugin):
     # plugins.implements(plugins.IActions)
     # plugins.implements(plugins.IBlueprint)
     # plugins.implements(plugins.IClick)
-    plugins.implements(plugins.ITemplateHelpers)
+    # plugins.implements(plugins.ITemplateHelpers)
     # plugins.implements(plugins.IValidators)
     
 
@@ -53,11 +53,7 @@ class ThemePlugin(plugins.SingletonPlugin):
 
     # ITemplateHelpers
 
-    def get_helpers(self):     
-        return { 'my_custom_setting': self._get_my_custom_setting}
 
-    def _get_my_custom_setting(self):
-        return config.get('my.custom.setting', 'default_value')
     # IValidators
 
     # def get_validators(self):
