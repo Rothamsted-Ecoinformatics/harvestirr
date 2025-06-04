@@ -6,6 +6,12 @@ setup(
     # have to change the message extractors, you can read more about babel
     # message extraction at
     # http://babel.pocoo.org/docs/messages/#extraction-method-mapping-and-configuration
+    
+    entry_points='''
+    [ckan.plugins]
+    random=ckanext.random.plugin:RandomNamePlugin
+    ''',
+
     message_extractors={
         'ckanext': [
             ('**.py', 'python', None),

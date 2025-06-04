@@ -1,6 +1,16 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
+from ckan.plugins import SingletonPlugin, implements
+from ckan.plugins import IDatasetForm
+from ckan.plugins.toolkit import get_action
+
+import random
+import logging
+
+from ckan.plugins.toolkit import get_action
+
+log = logging.getLogger(__name__)
 
 # import ckanext.random.cli as cli
 # import ckanext.random.helpers as helpers
@@ -10,23 +20,28 @@ import ckan.plugins.toolkit as toolkit
 # )
 
 
-class RandomPlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
-    
-    # plugins.implements(plugins.IAuthFunctions)
-    # plugins.implements(plugins.IActions)
-    # plugins.implements(plugins.IBlueprint)
-    # plugins.implements(plugins.IClick)
-    # plugins.implements(plugins.ITemplateHelpers)
-    # plugins.implements(plugins.IValidators)
-    
 
-    # IConfigurer
+class RandomPlugin(SingletonPlugin):
+    implements(IDatasetForm, inherit=True)
 
-    def update_config(self, config_):
-        toolkit.add_template_directory(config_, "templates")
-        toolkit.add_public_directory(config_, "public")
-        toolkit.add_resource("assets", "random")
+    def before_create(self, context, data_dict):
+        log.info("RandomNamePlugin: before_create triggered")
+
+         # Remove existing name if provided
+        data_dict.pop('name', None)
+
+    # Generate a unique 5-digit number
+        existing = get_action('package_show')
+        while True:
+            random_name = str(random.randint(10000, 99999))
+            try:
+                existing(context, {'id': random_name})
+            except Exception:
+                break
+
+        data_dict['name'] = random_name
+        log.info(f"RandomNamePlugin: assigned name {random_name}")
+        return data_dict
 
     
     # IAuthFunctions
@@ -58,4 +73,4 @@ class RandomPlugin(plugins.SingletonPlugin):
 
     # def get_validators(self):
     #     return validators.get_validators()
-    
+
