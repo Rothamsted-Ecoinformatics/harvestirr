@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
+import random
+from ckan.plugins.toolkit import get_action, config
 
 # import ckanext.randomnameplugin.cli as cli
 # import ckanext.randomnameplugin.helpers as helpers
@@ -12,6 +13,7 @@ import ckan.plugins.toolkit as toolkit
 
 class RandomnamepluginPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IDatasetForm, inherit=True)
     
     # plugins.implements(plugins.IAuthFunctions)
     # plugins.implements(plugins.IActions)
@@ -22,6 +24,25 @@ class RandomnamepluginPlugin(plugins.SingletonPlugin):
     
 
     # IConfigurer
+    
+    def create_package_schema(self):
+        schema = super(RandomnamepluginPlugin, self).create_package_schema()
+        return schema
+    def before_create(self, context, data_dict):
+        # Generate a random 5-digit number
+        random_name = str(random.randint(10000, 99999))
+   
+        # Ensure uniqueness
+        existing = get_action('package_show')
+        while True:
+            try:
+                existing(context, {'id': random_name})
+                random_name = str(random.randint(10000, 99999))
+            except:
+                break
+        data_dict['name'] = random_name
+        return data_dict
+     
 
     def update_config(self, config_):
         toolkit.add_template_directory(config_, "templates")
