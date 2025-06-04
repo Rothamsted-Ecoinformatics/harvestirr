@@ -3,6 +3,9 @@ import ckan.plugins.toolkit as toolkit
 import random
 from ckan.plugins.toolkit import get_action, config
 
+import logging
+log = logging.getLogger(__name__)
+
 # import ckanext.randomnameplugin.cli as cli
 # import ckanext.randomnameplugin.helpers as helpers
 # import ckanext.randomnameplugin.views as views
@@ -12,7 +15,7 @@ from ckan.plugins.toolkit import get_action, config
 
 
 class RandomnamepluginPlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
+    #plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm, inherit=True)
     
     # plugins.implements(plugins.IAuthFunctions)
@@ -29,6 +32,7 @@ class RandomnamepluginPlugin(plugins.SingletonPlugin):
         schema = super(RandomnamepluginPlugin, self).create_package_schema()
         return schema
     def before_create(self, context, data_dict):
+        log.error("RandomNamePlugin: before_create triggered")
         # Generate a random 5-digit number
         random_name = str(random.randint(10000, 99999))
    
