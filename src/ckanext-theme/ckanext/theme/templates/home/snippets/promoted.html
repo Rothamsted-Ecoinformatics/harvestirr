@@ -5,7 +5,7 @@
     {% if intro %}
       {{ h.render_markdown(intro) }}
     {% else %}
-      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
+      <h1 class="page-heading">{{ _("HARVESTIRR") }}</h1>
       <p>
         {% trans %}This institutional open access repository contains details 
         of the research publications of Rothamsted Research from 1843 to the present day.
@@ -18,6 +18,11 @@
     <section class="featured media-overlay hidden-xs">
       <h2 class="media-heading">{% block home_image_caption %}{{ _("New Harvestirr") }}{% endblock %}</h2>
       {% block home_image_content %}
+        <a class="media-image" href="#">
+          <img class="img-fluid" src="{{ h.url_for_static('/base/images/calf.jpg') }}" alt="Placeholder" />
+        </a>
+      {% endblock %}
+            {% block home_image_content2 %}
         <a class="media-image" href="#">
           <img class="img-fluid" src="{{ h.url_for_static('/base/images/calf.jpg') }}" alt="Placeholder" />
         </a>
