@@ -13579,7 +13579,7 @@ td.diff_header {
 }
 .masthead .main-navbar ul li a {
   padding: 0.6rem 0.9rem;
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 .masthead .main-navbar ul li:hover a, .masthead .main-navbar ul li:focus a, .masthead .main-navbar ul li.active a {
