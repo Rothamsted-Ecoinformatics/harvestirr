@@ -11443,7 +11443,7 @@ a.tag:hover {
   }
 }
 .media-view:hover, .media-view.hovered {
-  border-color: #005d7a;
+  border-color: #7a997a;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
 }
 .media-view span {
@@ -13373,7 +13373,7 @@ td.diff_header {
 }
 .homepage .module-search .search-form {
   border-radius: 0.25rem;
-  background-color: #005d7a;
+  background-color: #7a997a;
   padding: 30px 20px;
 }
 .homepage .module-search .search-form input {
@@ -13625,7 +13625,7 @@ td.diff_header {
   }
 }
 .site-footer {
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #7a997a url("../../../base/images/bg.png");
   padding: 20px 0;
 }
 .site-footer label,
