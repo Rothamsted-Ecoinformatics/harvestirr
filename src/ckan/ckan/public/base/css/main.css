@@ -13530,7 +13530,7 @@ td.diff_header {
 }
 
 .masthead {
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #000000 url("../../../base/images/bg.png");
 }
 .masthead .debug {
   position: fixed;
