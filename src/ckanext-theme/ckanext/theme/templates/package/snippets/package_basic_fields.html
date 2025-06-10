@@ -71,7 +71,7 @@
 
   {% if show_organizations_selector %}
     {% set existing_org = data.owner_org or data.group_id %}
-    <div class="form-group control-medium">
+    <div class="form-group control-medium" style="display: none;">
       <label for="field-organizations" class="form-label">{{ h.humanize_entity_type('organization', default_group_type, 'default label') or _('Organization') }}</label>
       <div class="controls">
         <select id="field-organizations" name="owner_org" data-module="autocomplete">

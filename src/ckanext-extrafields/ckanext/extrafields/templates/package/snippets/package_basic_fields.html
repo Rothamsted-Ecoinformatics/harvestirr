@@ -70,7 +70,7 @@
   <br><br>
 
   <!-- Existing DOI -->
-  <label for="field-existing_doi">Existing DOI</label><br>
+  <label for="field-existing_doi">DOI</label><br>
   <input type="text" id="field-existing_doi" placeholder="10.1234/5678" class="control-medium"
     value="{{ data.existing_doi }}" name="existing_doi">
   <br><br>
@@ -87,6 +87,7 @@
     <option value="">Select an option</option>
     <option value="green_open_access">Published as green open access</option>
     <option value="gold_open_access">Published as ‘gold’ (paid) open access</option>
+    <option value="bronze_open_access">Published as ‘bronze’ open access</option>
     <option value="non_open_access">Published as non-open access</option>
   </select>
   <br><br>
@@ -103,7 +104,7 @@
   <br><br>
 
   <!-- Funder Name -->
-  <label for="field-funder_name">Funder Name</label><br>
+  <label for="field-funder_name">Funder </label><br>
   <input type="text" id="field-funder_name" placeholder="eg. Funder Name" class="control-medium"
     value="{{ data.funder_name }}" name="funder_name">
   <br><br>
@@ -149,7 +150,7 @@
   <br><br>
 
   <!-- National Capability -->
-  <label for="field-national_capability">National Capability</label><br>
+  <label for="field-national_capability">Have you used National Capabilty data?</label><br>
   <select id="field-national_capability" class="control-medium" name="national_capability">
     <option value="">Select an option</option>
     <option value="yes">Yes</option>
