@@ -13394,7 +13394,7 @@ td.diff_header {
 .homepage .module-search .tags {
   margin-top: -5px;
   padding: 5px 10px 10px 10px;
-  background-color: #0e3633;
+  background-color: #0e6633;
 }
 .homepage .module-search .tags h3, .homepage .module-search .tags .h3 {
   font-size: 0.875rem;
@@ -13465,7 +13465,7 @@ td.diff_header {
 .account-masthead {
   min-height: 30px;
   color: #fff;
-  background: #0e3633 url("../../../base/images/bg.png");
+  background: #0e6633 url("../../../base/images/bg.png");
 }
 .account-masthead .account {
   float: right;
@@ -13584,7 +13584,7 @@ td.diff_header {
 }
 .masthead .main-navbar ul li:hover a, .masthead .main-navbar ul li:focus a, .masthead .main-navbar ul li.active a {
   border-radius: 0.3rem;
-  background-color: #0e3633;
+  background-color: #0e6633;
 }
 .masthead .main-navbar .site-search button {
   display: flex;
