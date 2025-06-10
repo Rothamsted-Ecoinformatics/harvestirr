@@ -27,7 +27,7 @@
 {% endblock %} -->
 
 {% block package_basic_fields_license %}
-  <div class="form-group control-full">
+  <div class="form-group control-full" style="display: none;">
     {% set error = errors.license_id %}
     <label class="form-label" for="field-license">{{ _("License") }}</label>
     <div class="controls">
