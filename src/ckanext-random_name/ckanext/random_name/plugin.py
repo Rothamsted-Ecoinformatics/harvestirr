@@ -1,61 +1,41 @@
+import random
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan.model import Package
 
-
-# import ckanext.random_name.cli as cli
-# import ckanext.random_name.helpers as helpers
-# import ckanext.random_name.views as views
-# from ckanext.random_name.logic import (
-#     action, auth, validators
-# )
-
-
-class RandomNamePlugin(plugins.SingletonPlugin):
+class RandomDatasetNamePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-    
-    # plugins.implements(plugins.IAuthFunctions)
-    # plugins.implements(plugins.IActions)
-    # plugins.implements(plugins.IBlueprint)
-    # plugins.implements(plugins.IClick)
-    # plugins.implements(plugins.ITemplateHelpers)
-    # plugins.implements(plugins.IValidators)
-    
+    plugins.implements(plugins.IResourceUrlChange)
+    plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IDatasetForm)
 
-    # IConfigurer
+    def update_config(self, config):
+        # Add our template and static files
+        toolkit.add_template_directory(config, 'templates')
+        toolkit.add_public_directory(config, 'public')
+        toolkit.add_resource('fanstatic', 'random_name')
 
-    def update_config(self, config_):
-        toolkit.add_template_directory(config_, "templates")
-        toolkit.add_public_directory(config_, "public")
-        toolkit.add_resource("assets", "random_name")
+    def get_helpers(self):
+        return {
+            'generate_random_dataset_name': self.generate_random_dataset_name
+        }
 
-    
-    # IAuthFunctions
+    def generate_random_dataset_name(self):
+        """Helper to be used in template to generate a unique random name."""
+        while True:
+            candidate = str(random.randint(10000, 99999))
+            if not Package.get(candidate):
+                return candidate
 
-    # def get_auth_functions(self):
-    #     return auth.get_auth_functions()
+    def before_create(self, context, data_dict):
+        # Set name only if not provided (i.e., during form load)
+        if not data_dict.get('name'):
+            data_dict['name'] = self.generate_random_dataset_name()
+        return data_dict
 
-    # IActions
-
-    # def get_actions(self):
-    #     return action.get_actions()
-
-    # IBlueprint
-
-    # def get_blueprint(self):
-    #     return views.get_blueprints()
-
-    # IClick
-
-    # def get_commands(self):
-    #     return cli.get_commands()
-
-    # ITemplateHelpers
-
-    # def get_helpers(self):
-    #     return helpers.get_helpers()
-
-    # IValidators
-
-    # def get_validators(self):
-    #     return validators.get_validators()
-    
+    def before_update(self, context, data_dict):
+        # Do not change the name if already set
+        if 'name' in data_dict:
+            del data_dict['name']
+        return data_dict
