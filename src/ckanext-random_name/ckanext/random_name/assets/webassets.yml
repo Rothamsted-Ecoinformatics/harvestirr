@@ -1,0 +1,14 @@
+# random_name-js:
+#   filter: rjsmin
+#   output: ckanext-random_name/%(version)s-random_name.js
+#   contents:
+#     - js/random_name.js
+#   extra:
+#     preload:
+#       - base/main
+
+# random_name-css:
+#   filter: cssrewrite
+#   output: ckanext-random_name/%(version)s-random_name.css
+#   contents:
+#     - css/random_name.css
