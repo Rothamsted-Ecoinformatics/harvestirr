@@ -5,7 +5,7 @@ from ckan.model import Package
 
 class RandomDatasetNamePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IPlugin)  # basic plugin interface
+   # plugins.implements(plugins.IPlugin)  # basic plugin interface
 
     def update_config(self, config):
         toolkit.add_template_directory(config, 'templates')
