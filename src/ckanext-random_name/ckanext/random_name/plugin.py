@@ -22,5 +22,5 @@ class RandomDatasetNamePlugin(SingletonPlugin):
     def update_package_schema(self):
         return toolkit.default_update_package_schema()
 
-    # def is_fallback(self):
-    #     return False  # Optional, only if needed
+    def is_fallback(self):
+        return False  # Optional, only if needed
