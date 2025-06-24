@@ -67,13 +67,14 @@
       margin-left: 5px;
     }
   </style>
-  <label id="creatorLabel"><strong>*Dataset Authors (Mandatory)</strong></label>
+  <label id="creatorLabel"><strong>*Dataset Authors (Mandatory)</strong></label><br>
+  
   <label for="field-name">Name</label><br>
   <input type="text" id="field-name" placeholder="John Cena" name="name" class="control-medium">
   <br><br>
 
   <label for="field-citation">Preferred Citation</label><br>
-  <input type="text" id="field-citation" placeholder="C. John" name="citation" class="control-medium">
+  <input type="text" id="field-citation" placeholder="C. John" name="citation" class="control-medium"><br>
    <button type="button" onclick="addCreator()">Add Creator</button>
 
   <pre id='errorMessage'></pre>
@@ -103,13 +104,13 @@
 
 
     function addCreator() {
-      let name = document.getElementById('field-name').value;
+      let names = document.getElementById("field-name").value;
       let citations = document.getElementById('field-citation').value;
-      console.log(name, citations);
+      console.log(names, citations);
 
       //Clear the fields
       try {
-        if (!name) {
+        if (names != '' && names != null) {
           throw new Error('Names Should Not Be Empty');
         }
       }
@@ -119,19 +120,19 @@
       }
       clearCreatorInputFields();
       
-      creator.push(name);
+      creator.push(names);
       if (citations) {
         pref_citation.push(citations);
       }
       else {
-        pref_citation.push(name);
+        pref_citation.push(names);
       }
      
       document.getElementById('field-author').value = creator;
       document.getElementById('field-preferred_citation').value = citation;
       
 
-      displayCreators(name, citations);
+      displayCreators(names, citations);
     }
 
     function clearCreatorInputFields() {
