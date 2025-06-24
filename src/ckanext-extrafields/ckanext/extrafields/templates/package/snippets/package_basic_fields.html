@@ -106,7 +106,7 @@
     function addCreator() {
       let names = document.getElementById("field-name").value;
       let citations = document.getElementById('field-citation').value;
-      console.log(names, citations);
+      console.log(names);
 
       //Clear the fields
       try {
@@ -129,7 +129,7 @@
       }
      
       document.getElementById('field-author').value = creator;
-      document.getElementById('field-preferred_citation').value = citation;
+      document.getElementById('field-preferred_citation').value = pref_citation;
       
 
       displayCreators(names, citations);
