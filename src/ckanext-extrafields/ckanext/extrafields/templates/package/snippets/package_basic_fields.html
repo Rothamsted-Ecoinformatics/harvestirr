@@ -69,8 +69,8 @@
   </style>
   <label id="creatorLabel"><strong>*Dataset Authors (Mandatory)</strong></label><br>
   
-  <label for="field-name">Name</label><br>
-  <input type="text" id="field-name" placeholder="John Cena" name="name" class="control-medium">
+  <label for="field-fullname">Full Name</label><br>
+  <input type="text" id="field-fullname" placeholder="John Cena" name="fullname" class="control-medium">
   <br><br>
 
   <label for="field-citation">Preferred Citation</label><br>
@@ -104,7 +104,7 @@
 
 
     function addCreator() {
-      let names = document.getElementById("field-name").value;
+      let names = document.getElementById("field-fullname").value;
       let citations = document.getElementById('field-citation').value;
       console.log(names);
 
@@ -136,7 +136,7 @@
     }
 
     function clearCreatorInputFields() {
-      document.getElementById('field-name').value = '';
+      document.getElementById('field-fullname').value = '';
       document.getElementById('field-citation').value = '';
       document.getElementById('errorMessage').innerHTML = '';
     }
