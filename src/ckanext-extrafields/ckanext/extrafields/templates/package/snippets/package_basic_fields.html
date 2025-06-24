@@ -109,15 +109,15 @@
       console.log("names here:" + names);
 
       //Clear the fields
-      try {
-        if (names != '' && names != null) {
-          throw new Error('Names Should Not Be Empty');
-        }
-      }
-      catch (err) {
-        document.getElementById('errorMessage').innerHTML = err.message;
-        return;
-      }
+      // try {
+      //   if (names != '' && names != null) {
+      //     throw new Error('Names Should Not Be Empty');
+      //   }
+      // }
+      // catch (err) {
+      //   document.getElementById('errorMessage').innerHTML = err.message;
+      //   return;
+      // }
       clearCreatorInputFields();
       
       creator.push(names);
