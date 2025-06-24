@@ -8,6 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+    crossorigin=""></script>
+</head>
+
 <!-- 
 #######################
 #######################
@@ -23,12 +36,156 @@
   <input type="text" id="field-alternative_name" placeholder="eg. Alternative Title" class="control-medium"
     value="{{ data.alternative_name }}" name="alternative_name">
   <br><br>
+  <!-- start here  -->
+  <style>
+    pre {
+      color: rgb(0, 0, 0);
+      font: 1em sans-serif;
+    }
 
-  <!-- Author -->
-  {% block package_metadata_author %}
-  {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
-  error=errors.author, classes=['control-medium']) }}
-  {% endblock %}
+    p {
+      color: black;
+      font: 1em sans-serif
+    }
+
+
+    #creatorDisp {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .creator-item {
+      background-color: #f0f0f0;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .creator-item .close-btn {
+      cursor: pointer;
+      margin-left: 5px;
+    }
+  </style>
+  <label id="creatorLabel"><strong>*Dataset Authors (Mandatory)</strong></label>
+  <label for="field-name">Name</label><br>
+  <input type="text" id="field-name" placeholder="John Cena" name="name" class="control-medium">
+  <br><br>
+
+  <label for="field-citation">Preferred Citation</label><br>
+  <input type="text" id="field-citation" placeholder="C. John" name="citation" class="control-medium">
+   <button type="button" onclick="addCreator()">Add Creator</button>
+
+  <pre id='errorMessage'></pre>
+  <div id="creatorDisp"></div>
+  <br>
+
+  <br><br>
+  <!-- ####################################################################################################### -->
+<script>
+
+    var $j = jQuery.noConflict();
+   
+    var creator = [];
+    var pref_citation = [];
+   
+    if ("{{ data.author }}") {
+      creator = "{{data.author}}".split(",")
+      pref_citation = "{{data.preferred_citaion}}".split(",");
+      
+    }
+    const creatorList = document.getElementById('creatorDisp');
+    if (creator[0] != '') {
+      for (let i = 0; i < creator.length; i++) {
+        displayCreators(creator[i], pref_citation[i]);
+      }
+    }
+
+
+    function addCreator() {
+      let name = document.getElementById('field-name').value;
+      let citations = document.getElementById('field-citation').value;
+      
+
+      //Clear the fields
+      try {
+        if (!name) {
+          throw new Error('Names Should Not Be Empty');
+        }
+      }
+      catch (err) {
+        document.getElementById('errorMessage').innerHTML = err.message;
+        return;
+      }
+      clearCreatorInputFields();
+      
+      creator.push(name);
+      if (citations) {
+        pref_citation.push(citations);
+      }
+      else {
+        pref_citation.push(name);
+      }
+     
+      document.getElementById('field-author').value = creator;
+      document.getElementById('field-preferred_citation').value = citation;
+      
+
+      displayCreators(name, citations);
+    }
+
+    function clearCreatorInputFields() {
+      document.getElementById('field-name').value = '';
+      document.getElementById('field-citation').value = '';
+      document.getElementById('errorMessage').innerHTML = '';
+    }
+    function displayCreators(name, citation) {
+      let index = creator.indexOf(name);
+      const creatorItem = document.createElement("div");
+      creatorItem.classList.add('creator-item');
+      creatorItem.innerHTML = `
+          ${name}, ${citation}     <span class="close-btn" onclick="removeCreator(this)"><i class="fas fa-trash"></i></span>
+      `;
+      creatorList.appendChild(creatorItem);
+      //displayCreatorPre();
+    }
+
+
+
+    function removeCreator(closeBtn) {
+      const creatorItem = closeBtn.parentNode;
+      creatorList.removeChild(creatorItem);
+      let name = creatorItem.textContent.trim();
+      name = name.split(",");
+      name = name[0];
+      // name = name.slice(0, -1);
+      name = name.trim();
+      let index = creator.indexOf(name);
+      creator.splice(index, 1);
+      pref_citation.splice(index, 1);
+      
+      document.getElementById('field-author').value = creator;
+      document.getElementById('field-preferred_citation').value = pref_citation;
+      
+      //displayCreatorPre();
+    }
+
+  </script>
+
+<!-- ##################################################################################### -->
+  <!-- End here -->
+  <div style="display: block;">
+    <!-- Author -->
+    {% block package_metadata_author %}
+    {{ form.input('author', label=_('Author'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author,
+    error=errors.author, classes=['control-medium']) }}
+    {% endblock %}
+    <!-- Preferred Citation -->
+    <label for="field-preferred_citation">Preferred Citation</label><br>
+    <input type="text" id="field-preferred_citation" placeholder="eg. Bloggs, J. (2023). Title of the work."
+      class="control-medium" value="{{ data.preferred_citation }}" name="preferred_citation">
+    <br><br>
+  </div>
   <!-- Abstract -->
   <label for="field-abstract">Abstract</label><br>
   <textarea id="field-notes" placeholder="eg. Some useful notes about the data" class="control-medium"
@@ -95,7 +252,7 @@
     if ("{{ data.openAccess }}") {
       document.getElementById("openAccess").value = "{{ data.openAccess }}";
     }
-    </script>
+  </script>
 
   <!-- Funder Code -->
   <label for="field-funder_code">Funder Code</label><br>
@@ -130,7 +287,7 @@
     if ("{{ data.output_status }}") {
       document.getElementById("output_status").value = "{{ data.output_status }}";
     }
-    </script>
+  </script>
 
   <!-- Strategic Area -->
   <label for="field-strategic_area">Strategic Area</label><br>
@@ -464,57 +621,56 @@
         clear_fields();
         show_referred_journal_fields();
       }
-      else if (selectedValue == "Book chapters etc. edited externally")
-      {
+      else if (selectedValue == "Book chapters etc. edited externally") {
         hide_optional_fields();
         clear_fields();
         show_book_chapter_fields();
       }
-      else if (selectedValue == "Edited contributions to conferences/learned societies"){
+      else if (selectedValue == "Edited contributions to conferences/learned societies") {
         hide_optional_fields();
         clear_fields();
         show_conference_fields();
       }
-      else if (selectedValue == "Report"){
+      else if (selectedValue == "Report") {
         clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Preprint article"){
-        clear_fields();  
+      else if (selectedValue == "Preprint article") {
+        clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Books edited/written by staff member, alone/with others"){
+      else if (selectedValue == "Books edited/written by staff member, alone/with others") {
         hide_optional_fields();
         clear_fields();
         show_book_edited_fields();
       }
-      else if (selectedValue == "Theses"){
+      else if (selectedValue == "Theses") {
         hide_optional_fields();
         clear_fields();
         show_thesis_fields();
       }
-      else  if (selectedValue == "Articles in popular magazines and other technical publications"){
+      else if (selectedValue == "Articles in popular magazines and other technical publications") {
         hide_optional_fields();
         clear_fields();
       }
-      else if (selectedValue =="Patents"){
+      else if (selectedValue == "Patents") {
         hide_optional_fields();
         clear_fields();
         show_patents_fields();
       }
-      else if (selectedValue == "Protein or DNA sequences submitted to database"){
+      else if (selectedValue == "Protein or DNA sequences submitted to database") {
         clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Plant variety"){
+      else if (selectedValue == "Plant variety") {
         clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Agricultural models"){
+      else if (selectedValue == "Agricultural models") {
         clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Datasets"){
+      else if (selectedValue == "Datasets") {
         clear_fields();
         hide_optional_fields();
         show_dataset_fields();
@@ -522,13 +678,13 @@
     }
 
 
-    function clear_fields(){
+    function clear_fields() {
       console.log("clearing fields");
       document.getElementById("field-journal").value = "";
       document.getElementById("field-publisher").value = "";
       document.getElementById("field-journal_volume").value = "";
       document.getElementById("field-journal_issue").value = "";
-      document.getElementById("field-journal_page_range").value = ""; 
+      document.getElementById("field-journal_page_range").value = "";
       document.getElementById("field-isbn").value = "";
       document.getElementById("field-issn").value = "";
       document.getElementById("field-placeOf_publication").value = "";
@@ -551,7 +707,7 @@
       document.getElementById("field-dataset_collection_method").value = "";
       document.getElementById("field-dataset_data_prep_method").value = "";
       document.getElementById("field-dataset_data_retention_date").value = "";
-      document.getElementById("field-dataset_retention_action").value = "";  
+      document.getElementById("field-dataset_retention_action").value = "";
     }
     function hide_optional_fields() {
       document.getElementById("journal_div").style.display = "none";
@@ -564,7 +720,7 @@
       document.getElementById("placeOf_publication_div").style.display = "none";
       document.getElementById("pubMedID_div").style.display = "none";
       document.getElementById("book_edition_div").style.display = "none";
-      document.getElementById("book_series_div").style.display = "none";  
+      document.getElementById("book_series_div").style.display = "none";
       document.getElementById("conference_type_div").style.display = "none";
       document.getElementById("conference_location_div").style.display = "none";
       document.getElementById("conference_date_div").style.display = "none";
@@ -575,7 +731,7 @@
       document.getElementById("patent_id_div").style.display = "none";
       document.getElementById("dataset_version_div").style.display = "none";
       document.getElementById("dataset_data_type_div").style.display = "none";
-      document.getElementById("dataset_content_div").style.display = "none";  
+      document.getElementById("dataset_content_div").style.display = "none";
       document.getElementById("dataset_collection_start_div").style.display = "none";
       document.getElementById("dataset_collection_end_div").style.display = "none";
       document.getElementById("dataset_collection_method_div").style.display = "none";
@@ -620,13 +776,13 @@
       document.getElementById("thesis_qualification_name_div").style.display = "block";
     }
 
-    function show_patents_fields(){
+    function show_patents_fields() {
       document.getElementById("patent_type_div").style.display = "block";
       document.getElementById("patent_applicant_div").style.display = "block";
       document.getElementById("patent_id_div").style.display = "block";
     }
 
-    function show_dataset_fields(){
+    function show_dataset_fields() {
       document.getElementById("dataset_version_div").style.display = "block";
       document.getElementById("dataset_data_type_div").style.display = "block";
       document.getElementById("dataset_content_div").style.display = "block";
@@ -640,24 +796,24 @@
 
   </script>
 
-<!-- Data Retention and Display -->
-<script>
-  if ("{{data.publication_type}}") {
-    console.log("data.publication_type: ", "{{data.publication_type}}");
-    printSelectionWithData();
-  }
-  if ("{{data.openAccess}}") {
-    console.log("data.openAccess: ", "{{data.openAccess}}");
-    printOpenAccessWithData("{{data.openAccess}}");
-  }
-  function printSelectionWithData() {
+  <!-- Data Retention and Display -->
+  <script>
+    if ("{{data.publication_type}}") {
+      console.log("data.publication_type: ", "{{data.publication_type}}");
+      printSelectionWithData();
+    }
+    if ("{{data.openAccess}}") {
+      console.log("data.openAccess: ", "{{data.openAccess}}");
+      printOpenAccessWithData("{{data.openAccess}}");
+    }
+    function printSelectionWithData() {
       const selectElement = document.getElementById('field-publication_type');
       const selectedValue = "{{ data.publication_type }}";
       selectElement.value = selectedValue;
       console.log('Selected publication type with data:', selectedValue);
       //console.log('Selected publication type:', selectedValue);
       if (selectedValue == "") {
-        
+
         hide_optional_fields();
         // clear_fields();
         console.log("no type");
@@ -667,67 +823,66 @@
         // clear_fields();
         show_referred_journal_fields();
       }
-      else if (selectedValue == "Book chapters etc. edited externally")
-      {
+      else if (selectedValue == "Book chapters etc. edited externally") {
         hide_optional_fields();
         // clear_fields();
         show_book_chapter_fields();
       }
-      else if (selectedValue == "Edited contributions to conferences/learned societies"){
+      else if (selectedValue == "Edited contributions to conferences/learned societies") {
         hide_optional_fields();
         // clear_fields();
         show_conference_fields();
       }
-      else if (selectedValue == "Report"){
+      else if (selectedValue == "Report") {
         // clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Preprint article"){
+      else if (selectedValue == "Preprint article") {
         // clear_fields();  
         hide_optional_fields();
       }
-      else if (selectedValue == "Books edited/written by staff member, alone/with others"){
+      else if (selectedValue == "Books edited/written by staff member, alone/with others") {
         hide_optional_fields();
         // clear_fields();
         show_book_edited_fields();
       }
-      else if (selectedValue == "Theses"){
+      else if (selectedValue == "Theses") {
         hide_optional_fields();
         // clear_fields();
         show_thesis_fields();
       }
-      else  if (selectedValue == "Articles in popular magazines and other technical publications"){
+      else if (selectedValue == "Articles in popular magazines and other technical publications") {
         hide_optional_fields();
         // clear_fields();
       }
-      else if (selectedValue =="Patents"){
+      else if (selectedValue == "Patents") {
         hide_optional_fields();
         // clear_fields();
         show_patents_fields();
       }
-      else if (selectedValue == "Protein or DNA sequences submitted to database"){
+      else if (selectedValue == "Protein or DNA sequences submitted to database") {
         // clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Plant variety"){
+      else if (selectedValue == "Plant variety") {
         // clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Agricultural models"){
+      else if (selectedValue == "Agricultural models") {
         // clear_fields();
         hide_optional_fields();
       }
-      else if (selectedValue == "Datasets"){
+      else if (selectedValue == "Datasets") {
         // clear_fields();
         hide_optional_fields();
         show_dataset_fields();
       }
     }
-  function printOpenAccessWithData(openAccess) {
-      const openAccessElement = document.getElementById('openAccess');  
+    function printOpenAccessWithData(openAccess) {
+      const openAccessElement = document.getElementById('openAccess');
       console.log('Open Access value:', openAccess);
     }
 
-</script>
+  </script>
 </body>
 {% endblock %}

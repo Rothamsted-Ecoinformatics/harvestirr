@@ -24,6 +24,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
         schema.update({
             'alternative_name': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'preferred_citation': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
@@ -128,6 +130,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
         schema.update({
             'alternative_name': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
+            'preferred_citation': [tk.get_validator('ignore_missing'),
+                            tk.get_converter('convert_to_extras')],
             'publication_type': [tk.get_validator('ignore_missing'),
                             tk.get_converter('convert_to_extras')],
             'publication_year': [tk.get_validator('ignore_missing'),
@@ -231,6 +235,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
         schema.update({
             'alternative_name': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
+            'preferred_citation': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_year': [tk.get_converter('convert_from_extras'),
@@ -332,6 +338,8 @@ class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
             ExampleIDatasetFormPlugin, self).show_package_schema()
         schema.update({
             'alternative_name': [tk.get_converter('convert_from_extras'),
+                            tk.get_validator('ignore_missing')],
+            'preferred_citation': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],
             'publication_type': [tk.get_converter('convert_from_extras'),
                             tk.get_validator('ignore_missing')],

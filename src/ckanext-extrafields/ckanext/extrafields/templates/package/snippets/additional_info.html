@@ -7,6 +7,12 @@
   <td class="dataset-details">{{ pkg_dict.alternative_name }}</td>
 </tr>
 {% endif %}
+{% if pkg_dict.preferred_citation %}
+<tr>
+  <th scope="row" class="dataset-label">{{ _("Preferred Citation") }}</th>
+  <td class="dataset-details">{{ pkg_dict.preferred_citation }}</td>
+</tr>
+{% endif %}
 {% if pkg_dict.publication_type %}
 <tr>
   <th scope="row" class="dataset-label">{{ _("Publication Type") }}</th>
