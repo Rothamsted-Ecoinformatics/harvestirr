@@ -1,46 +1,92 @@
 {% extends "package/read_base.html" %}
 
 {% block primary_content_inner %}
-  {{ super() }}
-  {% block package_description %}
-    {% if pkg.private %}
-      <span class="dataset-private badge badge-inverse pull-right">
-        <i class="fa fa-lock"></i>
-        {{ _('Private') }}
-      </span>
-    {% endif %}
-    <h1>
-      {% block page_heading %}
-        {{ h.dataset_display_name(pkg) }}
-        {% if pkg.state.startswith('draft') %}
-          [{{ _('Draft') }}]
-        {% endif %}
-        {% if pkg.state == 'deleted' %}
-          [{{ _('Deleted') }}]
-        {% endif %}
-      {% endblock %}
-    </h1>
-    {% block package_notes %}
+{{ super() }}
+{% block package_description %}
+{% if pkg.private %}
+<span class="dataset-private badge badge-inverse pull-right">
+  <i class="fa fa-lock"></i>
+  {{ _('Private') }}
+</span>
+{% endif %}
+<h1>
+  {% block page_heading %}
+  {{ h.dataset_display_name(pkg) }}
+  {% if pkg.state.startswith('draft') %}
+  [{{ _('Draft') }}]
+  {% endif %}
+  {% if pkg.state == 'deleted' %}
+  [{{ _('Deleted') }}]
+  {% endif %}
+  {% endblock %}
+</h1>
+<!-- {% block package_notes %}
       {% if pkg.notes %}
         <div class="notes embedded-content">
           {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
         </div>
       {% endif %}
-    {% endblock %}
-    {# FIXME why is this here? seems wrong #}
-    <span class="insert-comment-thread"></span>
-  {% endblock %}
+    {% endblock %} -->
+{% block package_notes %}
+{% if pkg.notes %}
+<div class="notes embedded-content">
+  <div id="notes-preview" class="notes-collapsed">
+    {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
+  </div>
+  <button id="toggle-notes" class="toggle-button">▼ Show more</button>
+</div>
+<style>
+  .notes-collapsed {
+    max-height: 7.5em;
+    /* Approx. 5 lines */
+    overflow: hidden;
+    position: relative;
+  }
 
-  {% block package_resources %}
-    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
-  {% endblock %}
+  .toggle-button {
+    background: none;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+    margin-top: 0.5em;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const notes = document.getElementById('notes-preview');
+    const toggleBtn = document.getElementById('toggle-notes');
 
-  {% block package_tags %}
-    {% snippet "package/snippets/tags.html", tags=pkg.tags %}
-  {% endblock %}
+    toggleBtn.addEventListener('click', function () {
+      if (notes.classList.contains('notes-collapsed')) {
+        notes.classList.remove('notes-collapsed');
+        toggleBtn.textContent = '▲ Show less';
+      } else {
+        notes.classList.add('notes-collapsed');
+        toggleBtn.textContent = '▼ Show more';
+      }
+    });
+  });
+</script>
+{% endif %}
+{% endblock %}
 
-  {% block package_additional_info %}
-    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
-  {% endblock %}
+<!-- ends here -->
+{# FIXME why is this here? seems wrong #}
+<span class="insert-comment-thread"></span>
+{% endblock %}
+
+{% block package_resources %}
+{% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+{% endblock %}
+
+{% block package_tags %}
+{% snippet "package/snippets/tags.html", tags=pkg.tags %}
+{% endblock %}
+
+{% block package_additional_info %}
+{% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
+{% endblock %}
 
 {% endblock %}
