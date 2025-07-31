@@ -26,10 +26,10 @@
       {% block resource_list_empty %}
         {% if h.check_access('resource_create', {'package_id': pkg['id']}) %}
           {% trans url=h.url_for(pkg.type ~ '_resource.new', id=pkg.name) %}
-          <p class="empty">This dataset has no data, <a href="{{ url }}">why not add some?</a></p>
+          <p class="empty"> <a href="{{ url }}">why not add some?</a></p>
           {% endtrans %}
         {% else %}
-          <p class="empty">{{ _('This dataset has no data') }}</p>
+          <p class="empty">{{ _('') }}</p>
         {% endif %}
       {% endblock %}
     {% endif %}
