@@ -65,7 +65,14 @@
 </script>
 {% endif %}
 {% endblock %}
-
+{% block pubType %}
+<div>
+  {% if pkg_dict.publication_type %}
+  <h2>{{ _("Publication Type") }}</h2>
+  <p class="dataset-details">{{ pkg_dict.publication_type }}</p>
+  {% endif %}
+<div>  
+{% endblock %}
 <!-- ends here -->
 {# FIXME why is this here? seems wrong #}
 <span class="insert-comment-thread"></span>
