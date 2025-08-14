@@ -68,8 +68,8 @@
 {% block pubType %}
 <div>
   {% if pkg_dict.publication_type %}
-  <h2>{{ _("Publication Type") }}</h2>
-  <p class="dataset-details">{{ pkg_dict.publication_type }}</p>
+  <h3>{{ _("Publication Type": {{ pkg_dict.publication_type }}) }}</h3>
+  
   {% endif %}
 <div>  
 {% endblock %}
